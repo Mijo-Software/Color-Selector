@@ -30,23 +30,24 @@ namespace ColorSelector
 
       textBoxHexColorCode.Text = "$" + strColorBlueHex + strColorGreenHex + strColorRedHex;
       textBoxHtmlColorCode.Text = "#" + strColorRedHex + strColorGreenHex + strColorBlueHex;
+      textBoxRgbColorCode.Text = "(" + trackBarColorRed.Value + ", " + trackBarColorGreen.Value + ", " + trackBarColorBlue.Value + ")";
     }
 
     private void trackBarColorRed_Scroll(object sender, EventArgs e)
     {
-      textBoxColorRed.Text = trackBarColorRed.Value.ToString();
+      numericUpDownColorRed.Value = trackBarColorRed.Value;
       ChangePicBoxColor();
     }
 
     private void trackBarColorGreen_Scroll(object sender, EventArgs e)
     {
-      textBoxColorGreen.Text = trackBarColorGreen.Value.ToString();
+      numericUpDownColorGreen.Value = trackBarColorGreen.Value;
       ChangePicBoxColor();
     }
 
     private void trackBarColorBlue_Scroll(object sender, EventArgs e)
     {
-      textBoxColorBlue.Text = trackBarColorBlue.Value.ToString();
+      numericUpDownColorBlue.Value = trackBarColorBlue.Value;
       ChangePicBoxColor();
     }
 
@@ -64,9 +65,42 @@ namespace ColorSelector
     private void ColorSelectorForm_Load(object sender, EventArgs e)
     {
       ChangePicBoxColor();
-      textBoxColorRed.Text = "0";
-      textBoxColorGreen.Text = "0";
-      textBoxColorBlue.Text = "0";
+    }
+
+    private void buttonHexColorCodeCopyToClipboard_Click(object sender, EventArgs e)
+    {
+      textBoxHexColorCode.SelectAll();
+      textBoxHexColorCode.Copy();
+    }
+
+    private void buttonHtmlColorCodeCopyToClipboard_Click(object sender, EventArgs e)
+    {
+      textBoxHtmlColorCode.SelectAll();
+      textBoxHtmlColorCode.Copy();
+    }
+
+    private void buttonRgbColorCodeCopyToClipboard_Click(object sender, EventArgs e)
+    {
+      textBoxRgbColorCode.SelectAll();
+      textBoxRgbColorCode.Copy();
+    }
+
+    private void numericUpDownColorRed_ValueChanged(object sender, EventArgs e)
+    {
+      trackBarColorRed.Value = (int)numericUpDownColorRed.Value;
+      ChangePicBoxColor();
+    }
+
+    private void numericUpDownColorGreen_ValueChanged(object sender, EventArgs e)
+    {
+      trackBarColorGreen.Value = (int)numericUpDownColorGreen.Value;
+      ChangePicBoxColor();
+    }
+
+    private void numericUpDownColorBlue_ValueChanged(object sender, EventArgs e)
+    {
+      trackBarColorBlue.Value = (int)numericUpDownColorBlue.Value;
+      ChangePicBoxColor();
     }
   }
 }
