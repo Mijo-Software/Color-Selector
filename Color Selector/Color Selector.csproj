@@ -28,8 +28,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>11</ApplicationRevision>
-    <ApplicationVersion>1.5.0.%2a</ApplicationVersion>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -116,6 +116,7 @@
   <ItemGroup>
     <Content Include="ColorSelector_Icon1-old.ico" />
     <Content Include="ColorSelector_Icon2-new.ico" />
+    <None Include="Resources\ice_cube.png" />
     <None Include="Resources\tick.png" />
     <None Include="Resources\link.png" />
     <None Include="Resources\information.png" />

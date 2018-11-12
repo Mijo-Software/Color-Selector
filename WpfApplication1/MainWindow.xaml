@@ -1,0 +1,36 @@
+﻿<Window x:Name="Program" x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Color Selector" Height="362.546" Width="495.182" Icon="ColorSelector.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="485">
+        <Label x:Name="labelRed" Content="Rot" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0" Width="40"/>
+        <Label x:Name="labelGrün" Content="Grün" HorizontalAlignment="Left" Margin="0,29,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+        <Label x:Name="labelBlue" Content="Blau" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top" Width="256"/>
+        <Slider x:Name="slider_Copy" HorizontalAlignment="Left" Margin="40,6,0,0" VerticalAlignment="Top" Width="256"/>
+        <Slider x:Name="slider_Copy1" HorizontalAlignment="Left" Margin="40,64,0,0" VerticalAlignment="Top" Width="256"/>
+        <Button x:Name="button" Content="RND" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="366,204,0,0">
+            <Button.Effect>
+                <BlurEffect Radius="2"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="button_Copy" Content="INV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="396,204,0,0"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="16" Margin="426,206,0,0" VerticalAlignment="Top" Width="16" Stretch="None" Source="Resources/link.png"/>
+        <Button x:Name="button_Copy1" Content="RND" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="366,232,0,0"/>
+        <Button x:Name="button_Copy2" Content="INV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="396,232,0,0"/>
+        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="16" Margin="426,234,0,0" VerticalAlignment="Top" Width="16" Stretch="None" Source="Resources/link.png"/>
+        <Button x:Name="button_Copy3" Content="RND" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="366,262,0,0"/>
+        <Button x:Name="button_Copy4" Content="INV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="396,262,0,0"/>
+        <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="16" Margin="426,266,0,0" VerticalAlignment="Top" Width="16" Stretch="None" Source="Resources/link.png"/>
+        <Label x:Name="labelAlpha" Content="Alpha" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+        <Slider x:Name="slider_Copy2" HorizontalAlignment="Left" Margin="40,94,0,0" VerticalAlignment="Top" Width="256"/>
+        <Button x:Name="button_Copy5" Content="RND" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="366,294,0,0"/>
+        <Button x:Name="button_Copy6" Content="INV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="396,294,0,0"/>
+        <Image x:Name="image_Copy2" HorizontalAlignment="Left" Height="16" Margin="426,296,0,0" VerticalAlignment="Top" Width="16" Stretch="None" Source="Resources/link.png"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="62" Margin="161,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="101"/>
+    </Grid>
+</Window>
