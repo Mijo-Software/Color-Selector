@@ -58,7 +58,7 @@
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(24, 13);
       this.label1.TabIndex = 0;
-      this.label1.Text = "Rot";
+      this.label1.Text = "&Rot";
       // 
       // trackBarColorRed
       // 
@@ -105,7 +105,7 @@
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(30, 13);
       this.label2.TabIndex = 3;
-      this.label2.Text = "Grün";
+      this.label2.Text = "&Grün";
       // 
       // textBoxColorBlue
       // 
@@ -133,7 +133,7 @@
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(28, 13);
       this.label3.TabIndex = 6;
-      this.label3.Text = "Blau";
+      this.label3.Text = "&Blau";
       // 
       // pictureBoxColorRGB
       // 
@@ -151,7 +151,7 @@
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(80, 13);
       this.label4.TabIndex = 10;
-      this.label4.Text = "HEX-Farbcode:";
+      this.label4.Text = "HE&X-Farbcode:";
       // 
       // textBoxHexColorCode
       // 
@@ -174,7 +174,7 @@
       this.label5.Name = "label5";
       this.label5.Size = new System.Drawing.Size(88, 13);
       this.label5.TabIndex = 12;
-      this.label5.Text = "HTML-Farbcode:";
+      this.label5.Text = "&HTML-Farbcode:";
       // 
       // buttonInformation
       // 
@@ -195,7 +195,7 @@
       this.buttonEnd.Name = "buttonEnd";
       this.buttonEnd.Size = new System.Drawing.Size(75, 34);
       this.buttonEnd.TabIndex = 15;
-      this.buttonEnd.Text = "&Beenden";
+      this.buttonEnd.Text = "B&eenden";
       this.buttonEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonEnd.UseVisualStyleBackColor = true;
       this.buttonEnd.Click += new System.EventHandler(this.buttonEnd_Click);
