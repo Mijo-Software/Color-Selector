@@ -55,9 +55,11 @@
       this.buttonInvertColor = new System.Windows.Forms.Button();
       this.contextMenuStripInvertColor = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemInvertColorRGB = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.ToolStripMenuItemInvertColorRG = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemInvertColorRB = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemInvertColorGB = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.ToolStripMenuItemInvertColorR = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemInvertColorG = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemInvertColorB = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,8 +68,6 @@
       this.ToolStripMenuItemSwapRG = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemSwapRB = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemSwapGB = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.buttonMathColorCode = new System.Windows.Forms.Button();
       this.textBoxMathColorCode = new System.Windows.Forms.TextBox();
       this.labelMathColorCode = new System.Windows.Forms.Label();
@@ -340,21 +340,28 @@
             this.ToolStripMenuItemInvertColorG,
             this.ToolStripMenuItemInvertColorB});
       this.contextMenuStripInvertColor.Name = "contextMenuStripInvertColor";
-      this.contextMenuStripInvertColor.Size = new System.Drawing.Size(112, 170);
+      this.contextMenuStripInvertColor.ShowImageMargin = false;
+      this.contextMenuStripInvertColor.Size = new System.Drawing.Size(87, 170);
+      this.contextMenuStripInvertColor.TabStop = true;
       this.toolTipAppForm.SetToolTip(this.contextMenuStripInvertColor, "Invertiert die Farbkanäle");
       // 
       // ToolStripMenuItemInvertColorRGB
       // 
       this.ToolStripMenuItemInvertColorRGB.Name = "ToolStripMenuItemInvertColorRGB";
-      this.ToolStripMenuItemInvertColorRGB.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorRGB.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorRGB.Text = "R, G, B ";
       this.ToolStripMenuItemInvertColorRGB.ToolTipText = "Invertiert die Farbkanäle Rot, Gelb und Blau";
       this.ToolStripMenuItemInvertColorRGB.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorRGB_Click);
       // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(83, 6);
+      // 
       // ToolStripMenuItemInvertColorRG
       // 
       this.ToolStripMenuItemInvertColorRG.Name = "ToolStripMenuItemInvertColorRG";
-      this.ToolStripMenuItemInvertColorRG.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorRG.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorRG.Text = "R, G";
       this.ToolStripMenuItemInvertColorRG.ToolTipText = "Invertiert die Farbkanäle Rot und Gelb";
       this.ToolStripMenuItemInvertColorRG.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorRG_Click);
@@ -362,7 +369,7 @@
       // ToolStripMenuItemInvertColorRB
       // 
       this.ToolStripMenuItemInvertColorRB.Name = "ToolStripMenuItemInvertColorRB";
-      this.ToolStripMenuItemInvertColorRB.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorRB.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorRB.Text = "R, B";
       this.ToolStripMenuItemInvertColorRB.ToolTipText = "Invertiert die Farbkanäle Rot und Blau";
       this.ToolStripMenuItemInvertColorRB.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorRB_Click);
@@ -370,15 +377,20 @@
       // ToolStripMenuItemInvertColorGB
       // 
       this.ToolStripMenuItemInvertColorGB.Name = "ToolStripMenuItemInvertColorGB";
-      this.ToolStripMenuItemInvertColorGB.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorGB.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorGB.Text = "G, B";
       this.ToolStripMenuItemInvertColorGB.ToolTipText = "Invertiert die Farbkanäle Gelb und Blau";
       this.ToolStripMenuItemInvertColorGB.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorGB_Click);
       // 
+      // toolStripSeparator2
+      // 
+      this.toolStripSeparator2.Name = "toolStripSeparator2";
+      this.toolStripSeparator2.Size = new System.Drawing.Size(83, 6);
+      // 
       // ToolStripMenuItemInvertColorR
       // 
       this.ToolStripMenuItemInvertColorR.Name = "ToolStripMenuItemInvertColorR";
-      this.ToolStripMenuItemInvertColorR.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorR.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorR.Text = "R";
       this.ToolStripMenuItemInvertColorR.ToolTipText = "Invertiert den Farbkanal Rot";
       this.ToolStripMenuItemInvertColorR.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorR_Click);
@@ -386,7 +398,7 @@
       // ToolStripMenuItemInvertColorG
       // 
       this.ToolStripMenuItemInvertColorG.Name = "ToolStripMenuItemInvertColorG";
-      this.ToolStripMenuItemInvertColorG.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorG.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorG.Text = "G";
       this.ToolStripMenuItemInvertColorG.ToolTipText = "Invertiert den Farbkanal Grün";
       this.ToolStripMenuItemInvertColorG.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorG_Click);
@@ -394,7 +406,7 @@
       // ToolStripMenuItemInvertColorB
       // 
       this.ToolStripMenuItemInvertColorB.Name = "ToolStripMenuItemInvertColorB";
-      this.ToolStripMenuItemInvertColorB.Size = new System.Drawing.Size(111, 22);
+      this.ToolStripMenuItemInvertColorB.Size = new System.Drawing.Size(86, 22);
       this.ToolStripMenuItemInvertColorB.Text = "B";
       this.ToolStripMenuItemInvertColorB.ToolTipText = "Invertiert den Farbkanal Blau";
       this.ToolStripMenuItemInvertColorB.Click += new System.EventHandler(this.ToolStripMenuItemInvertColorB_Click);
@@ -422,6 +434,7 @@
       this.contextMenuStripSwapColor.Name = "contextMenuStripSwapColor";
       this.contextMenuStripSwapColor.ShowImageMargin = false;
       this.contextMenuStripSwapColor.Size = new System.Drawing.Size(155, 70);
+      this.contextMenuStripSwapColor.TabStop = true;
       this.toolTipAppForm.SetToolTip(this.contextMenuStripSwapColor, "Vertauscht die Farbkanäle");
       // 
       // ToolStripMenuItemSwapRG
@@ -447,16 +460,6 @@
       this.ToolStripMenuItemSwapGB.Text = "G <=> B  | B <=> G";
       this.ToolStripMenuItemSwapGB.ToolTipText = "Vertauscht die Farbkanäle Gelb und Blau";
       this.ToolStripMenuItemSwapGB.Click += new System.EventHandler(this.ToolStripMenuItemSwapGB_Click);
-      // 
-      // toolStripSeparator1
-      // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(108, 6);
-      // 
-      // toolStripSeparator2
-      // 
-      this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(108, 6);
       // 
       // buttonMathColorCode
       // 

@@ -139,9 +139,6 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="toolTipAppForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="buttonEnd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -215,7 +212,7 @@
   <data name="buttonSwapColor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAe
-        wAAAHsABES62twAAAAd0SU1FB9cJGxQTO4Isl8IAAAJkSURBVDhPpZPbT9JxGMa96sqrpmGu1lq1ynVa
+        vwAAHr8BQ/1smgAAAAd0SU1FB9cJGxQTO4Isl8IAAAJkSURBVDhPpZPbT9JxGMa96sqrpmGu1lq1ynVa
         bUxTFpuHdKA5AlI3sjSymYepmJLiyqTNXD85hRzUMZiCBw4BASIBMuZmOllpIuZW6R/hje4JKDMu2tj8
         bu/d+3y+e5/3eVNSDvsApCRb7bIZV9Og48h+f/zvZMVtUld2A+HY4fbbIgmAxx+qsF+PrBWoMbNRPcWc
         5xgYVIHaJ+ocml1vlbjQrXRDOr2AF+pZMATmUAwSfzFxYNuNue0Z+Ldc8P50QrkoRpOZi3rjQ+i9YZiC
