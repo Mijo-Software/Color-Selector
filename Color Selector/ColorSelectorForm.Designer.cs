@@ -576,7 +576,7 @@
       // 
       this.buttonBindColor.ContextMenuStrip = this.contextMenuStripInvertColor;
       this.buttonBindColor.Image = ((System.Drawing.Image)(resources.GetObject("buttonBindColor.Image")));
-      this.buttonBindColor.Location = new System.Drawing.Point(-24, 160);
+      this.buttonBindColor.Location = new System.Drawing.Point(352, 160);
       this.buttonBindColor.Name = "buttonBindColor";
       this.buttonBindColor.Size = new System.Drawing.Size(90, 35);
       this.buttonBindColor.TabIndex = 0;
@@ -704,9 +704,9 @@
       // 
       this.pictureBoxColorRGB.BackgroundImage = global::ColorSelector.Properties.Resources.bg;
       this.pictureBoxColorRGB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.pictureBoxColorRGB.Location = new System.Drawing.Point(24, 208);
+      this.pictureBoxColorRGB.Location = new System.Drawing.Point(16, 192);
       this.pictureBoxColorRGB.Name = "pictureBoxColorRGB";
-      this.pictureBoxColorRGB.Size = new System.Drawing.Size(96, 96);
+      this.pictureBoxColorRGB.Size = new System.Drawing.Size(120, 120);
       this.pictureBoxColorRGB.TabIndex = 9;
       this.pictureBoxColorRGB.TabStop = false;
       this.toolTipAppForm.SetToolTip(this.pictureBoxColorRGB, "Zeigt die Farbe an");
@@ -766,7 +766,7 @@
       this.checkBoxWebsafeColor.Appearance = System.Windows.Forms.Appearance.Button;
       this.checkBoxWebsafeColor.AutoSize = true;
       this.checkBoxWebsafeColor.Enabled = false;
-      this.checkBoxWebsafeColor.Location = new System.Drawing.Point(80, 160);
+      this.checkBoxWebsafeColor.Location = new System.Drawing.Point(344, 304);
       this.checkBoxWebsafeColor.Name = "checkBoxWebsafeColor";
       this.checkBoxWebsafeColor.Size = new System.Drawing.Size(87, 23);
       this.checkBoxWebsafeColor.TabIndex = 0;
