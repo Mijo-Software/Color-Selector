@@ -71,17 +71,27 @@
       this.toolStripMenuItemBindColorRGB = new System.Windows.Forms.ToolStripMenuItem();
       this.numericUpDownColorAlpha = new System.Windows.Forms.NumericUpDown();
       this.trackBarColorAlpha = new System.Windows.Forms.TrackBar();
-      this.buttonRandomColorAlpha = new System.Windows.Forms.Button();
+      this.buttonRandomizeColorAlpha = new System.Windows.Forms.Button();
       this.pictureBoxMathColorCodeCopyToClipboard = new System.Windows.Forms.PictureBox();
       this.pictureBoxRgbColorCodeCopyToClipboard = new System.Windows.Forms.PictureBox();
       this.pictureBoxHtmlColorCodeCopyToClipboard = new System.Windows.Forms.PictureBox();
       this.pictureBoxHexColorCodeCopyToClipboard = new System.Windows.Forms.PictureBox();
       this.buttonRandomizeColor = new System.Windows.Forms.Button();
+      this.contextMenuStripRandomizeColor = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.toolStripMenuItemRandomizeColorRGB = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripMenuItemRandomizeColorRG = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemRandomizeColorRB = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemRandomizeColorGB = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripMenuItemRandomizeColorR = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemRandomizeColorG = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemRandomizeColorB = new System.Windows.Forms.ToolStripMenuItem();
       this.pictureBoxBindColorB = new System.Windows.Forms.PictureBox();
       this.pictureBoxBindColorG = new System.Windows.Forms.PictureBox();
-      this.buttonRandomColorBlue = new System.Windows.Forms.Button();
-      this.buttonRandomColorGreen = new System.Windows.Forms.Button();
-      this.buttonRandomColorRed = new System.Windows.Forms.Button();
+      this.buttonRandomizeColorBlue = new System.Windows.Forms.Button();
+      this.buttonRandomizeColorGreen = new System.Windows.Forms.Button();
+      this.buttonRandomizeColorRed = new System.Windows.Forms.Button();
       this.pictureBoxBindColorR = new System.Windows.Forms.PictureBox();
       this.buttonMathColorCode = new System.Windows.Forms.Button();
       this.buttonHtmlColorCodeCopyToClipboard = new System.Windows.Forms.Button();
@@ -102,16 +112,6 @@
       this.timer = new System.Windows.Forms.Timer(this.components);
       this.labelAlpha = new System.Windows.Forms.Label();
       this.colorDialog = new System.Windows.Forms.ColorDialog();
-      this.contextMenuStripRandomizeColor = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.toolStripMenuItemRandomizeColorRGB = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripMenuItemRandomizeColorRG = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemRandomizeColorRB = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemRandomizeColorGB = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripMenuItemRandomizeColorR = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemRandomizeColorG = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItemRandomizeColorB = new System.Windows.Forms.ToolStripMenuItem();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorRed)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorGreen)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorBlue)).BeginInit();
@@ -127,11 +127,11 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRgbColorCodeCopyToClipboard)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHtmlColorCodeCopyToClipboard)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHexColorCodeCopyToClipboard)).BeginInit();
+      this.contextMenuStripRandomizeColor.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBindColorB)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBindColorG)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBindColorR)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorRGB)).BeginInit();
-      this.contextMenuStripRandomizeColor.SuspendLayout();
       this.SuspendLayout();
       // 
       // labelRed
@@ -142,6 +142,7 @@
       this.labelRed.Size = new System.Drawing.Size(24, 13);
       this.labelRed.TabIndex = 0;
       this.labelRed.Text = "&Rot";
+      this.toolTipAppForm.SetToolTip(this.labelRed, "Beschriftet den Rot-Anteil");
       // 
       // trackBarColorRed
       // 
@@ -163,7 +164,7 @@
       this.trackBarColorGreen.Maximum = 255;
       this.trackBarColorGreen.Name = "trackBarColorGreen";
       this.trackBarColorGreen.Size = new System.Drawing.Size(256, 45);
-      this.trackBarColorGreen.TabIndex = 5;
+      this.trackBarColorGreen.TabIndex = 6;
       this.trackBarColorGreen.TickFrequency = 26;
       this.trackBarColorGreen.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
       this.toolTipAppForm.SetToolTip(this.trackBarColorGreen, "Bestimmt den Grün-Anteil der Farbe");
@@ -175,8 +176,9 @@
       this.labelGreen.Location = new System.Drawing.Point(13, 62);
       this.labelGreen.Name = "labelGreen";
       this.labelGreen.Size = new System.Drawing.Size(30, 13);
-      this.labelGreen.TabIndex = 4;
+      this.labelGreen.TabIndex = 5;
       this.labelGreen.Text = "&Grün";
+      this.toolTipAppForm.SetToolTip(this.labelGreen, "Beschriftet den Grün-Anteil");
       // 
       // trackBarColorBlue
       // 
@@ -185,7 +187,7 @@
       this.trackBarColorBlue.Maximum = 255;
       this.trackBarColorBlue.Name = "trackBarColorBlue";
       this.trackBarColorBlue.Size = new System.Drawing.Size(256, 45);
-      this.trackBarColorBlue.TabIndex = 9;
+      this.trackBarColorBlue.TabIndex = 11;
       this.trackBarColorBlue.TickFrequency = 26;
       this.trackBarColorBlue.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
       this.toolTipAppForm.SetToolTip(this.trackBarColorBlue, "Bestimmt den Blau-Anteil der Farbe");
@@ -197,8 +199,9 @@
       this.labelBlue.Location = new System.Drawing.Point(13, 101);
       this.labelBlue.Name = "labelBlue";
       this.labelBlue.Size = new System.Drawing.Size(28, 13);
-      this.labelBlue.TabIndex = 8;
+      this.labelBlue.TabIndex = 10;
       this.labelBlue.Text = "&Blau";
+      this.toolTipAppForm.SetToolTip(this.labelBlue, "Beschriftet den Blau-Anteil");
       // 
       // labelHexColorCode
       // 
@@ -206,8 +209,9 @@
       this.labelHexColorCode.Location = new System.Drawing.Point(147, 203);
       this.labelHexColorCode.Name = "labelHexColorCode";
       this.labelHexColorCode.Size = new System.Drawing.Size(80, 13);
-      this.labelHexColorCode.TabIndex = 16;
+      this.labelHexColorCode.TabIndex = 21;
       this.labelHexColorCode.Text = "HE&X-Farbcode:";
+      this.toolTipAppForm.SetToolTip(this.labelHexColorCode, "Beschriftet den Hex-Farbcode");
       // 
       // textBoxHexColorCode
       // 
@@ -215,7 +219,7 @@
       this.textBoxHexColorCode.Name = "textBoxHexColorCode";
       this.textBoxHexColorCode.ReadOnly = true;
       this.textBoxHexColorCode.Size = new System.Drawing.Size(114, 20);
-      this.textBoxHexColorCode.TabIndex = 17;
+      this.textBoxHexColorCode.TabIndex = 22;
       this.toolTipAppForm.SetToolTip(this.textBoxHexColorCode, "Zeigt den HEX-Farbcode an");
       // 
       // textBoxHtmlColorCode
@@ -224,7 +228,7 @@
       this.textBoxHtmlColorCode.Name = "textBoxHtmlColorCode";
       this.textBoxHtmlColorCode.ReadOnly = true;
       this.textBoxHtmlColorCode.Size = new System.Drawing.Size(114, 20);
-      this.textBoxHtmlColorCode.TabIndex = 20;
+      this.textBoxHtmlColorCode.TabIndex = 25;
       this.toolTipAppForm.SetToolTip(this.textBoxHtmlColorCode, "Zeigt den HTML-Farbcode an");
       // 
       // labelHtmlColorCode
@@ -233,8 +237,9 @@
       this.labelHtmlColorCode.Location = new System.Drawing.Point(147, 229);
       this.labelHtmlColorCode.Name = "labelHtmlColorCode";
       this.labelHtmlColorCode.Size = new System.Drawing.Size(88, 13);
-      this.labelHtmlColorCode.TabIndex = 19;
+      this.labelHtmlColorCode.TabIndex = 24;
       this.labelHtmlColorCode.Text = "&HTML-Farbcode:";
+      this.toolTipAppForm.SetToolTip(this.labelHtmlColorCode, "Beschriftet den HTML-Farbcode");
       // 
       // textBoxRgbColorCode
       // 
@@ -242,7 +247,7 @@
       this.textBoxRgbColorCode.Name = "textBoxRgbColorCode";
       this.textBoxRgbColorCode.ReadOnly = true;
       this.textBoxRgbColorCode.Size = new System.Drawing.Size(114, 20);
-      this.textBoxRgbColorCode.TabIndex = 23;
+      this.textBoxRgbColorCode.TabIndex = 28;
       this.toolTipAppForm.SetToolTip(this.textBoxRgbColorCode, "Zeigt den RGB-Farbcode an");
       // 
       // labelRgbColorCode
@@ -251,8 +256,9 @@
       this.labelRgbColorCode.Location = new System.Drawing.Point(147, 255);
       this.labelRgbColorCode.Name = "labelRgbColorCode";
       this.labelRgbColorCode.Size = new System.Drawing.Size(81, 13);
-      this.labelRgbColorCode.TabIndex = 22;
+      this.labelRgbColorCode.TabIndex = 27;
       this.labelRgbColorCode.Text = "RGB-&Farbcode:";
+      this.toolTipAppForm.SetToolTip(this.labelRgbColorCode, "Beschriftet den RGB-Farbcode");
       // 
       // numericUpDownColorRed
       // 
@@ -278,7 +284,7 @@
             0});
       this.numericUpDownColorGreen.Name = "numericUpDownColorGreen";
       this.numericUpDownColorGreen.Size = new System.Drawing.Size(42, 20);
-      this.numericUpDownColorGreen.TabIndex = 6;
+      this.numericUpDownColorGreen.TabIndex = 7;
       this.toolTipAppForm.SetToolTip(this.numericUpDownColorGreen, "Bestimmt den Grün-Anteil der Farbe");
       this.numericUpDownColorGreen.ValueChanged += new System.EventHandler(this.numericUpDownColorGreen_ValueChanged);
       // 
@@ -292,9 +298,13 @@
             0});
       this.numericUpDownColorBlue.Name = "numericUpDownColorBlue";
       this.numericUpDownColorBlue.Size = new System.Drawing.Size(42, 20);
-      this.numericUpDownColorBlue.TabIndex = 10;
+      this.numericUpDownColorBlue.TabIndex = 12;
       this.toolTipAppForm.SetToolTip(this.numericUpDownColorBlue, "Bestimmt den Blau-Anteil der Farbe");
       this.numericUpDownColorBlue.ValueChanged += new System.EventHandler(this.numericUpDownColorBlue_ValueChanged);
+      // 
+      // toolTipAppForm
+      // 
+      this.toolTipAppForm.ToolTipTitle = "Tooltips";
       // 
       // contextMenuStripInvertColor
       // 
@@ -422,7 +432,7 @@
       this.textBoxMathColorCode.Name = "textBoxMathColorCode";
       this.textBoxMathColorCode.ReadOnly = true;
       this.textBoxMathColorCode.Size = new System.Drawing.Size(114, 20);
-      this.textBoxMathColorCode.TabIndex = 26;
+      this.textBoxMathColorCode.TabIndex = 31;
       this.toolTipAppForm.SetToolTip(this.textBoxMathColorCode, "Zeigt den mathematischen Farbcode an");
       // 
       // contextMenuStripBindColor
@@ -500,7 +510,7 @@
             0});
       this.numericUpDownColorAlpha.Name = "numericUpDownColorAlpha";
       this.numericUpDownColorAlpha.Size = new System.Drawing.Size(42, 20);
-      this.numericUpDownColorAlpha.TabIndex = 14;
+      this.numericUpDownColorAlpha.TabIndex = 17;
       this.toolTipAppForm.SetToolTip(this.numericUpDownColorAlpha, "Bestimmt den Alpha-Anteil der Farbe");
       this.numericUpDownColorAlpha.ValueChanged += new System.EventHandler(this.numericUpDownColorAlpha_ValueChanged);
       // 
@@ -511,22 +521,22 @@
       this.trackBarColorAlpha.Maximum = 255;
       this.trackBarColorAlpha.Name = "trackBarColorAlpha";
       this.trackBarColorAlpha.Size = new System.Drawing.Size(256, 45);
-      this.trackBarColorAlpha.TabIndex = 13;
+      this.trackBarColorAlpha.TabIndex = 16;
       this.trackBarColorAlpha.TickFrequency = 26;
       this.trackBarColorAlpha.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
       this.toolTipAppForm.SetToolTip(this.trackBarColorAlpha, "Bestimmt den Alpha-Anteil der Farbe");
       this.trackBarColorAlpha.Scroll += new System.EventHandler(this.trackBarColorAlpha_Scroll);
       // 
-      // buttonRandomColorAlpha
+      // buttonRandomizeColorAlpha
       // 
-      this.buttonRandomColorAlpha.Image = global::ColorSelector.Properties.Resources.dice;
-      this.buttonRandomColorAlpha.Location = new System.Drawing.Point(353, 139);
-      this.buttonRandomColorAlpha.Name = "buttonRandomColorAlpha";
-      this.buttonRandomColorAlpha.Size = new System.Drawing.Size(27, 20);
-      this.buttonRandomColorAlpha.TabIndex = 15;
-      this.toolTipAppForm.SetToolTip(this.buttonRandomColorAlpha, "Wählt den Alpha-Anteil per Zufall");
-      this.buttonRandomColorAlpha.UseVisualStyleBackColor = true;
-      this.buttonRandomColorAlpha.Click += new System.EventHandler(this.buttonRandomColorAlpha_Click);
+      this.buttonRandomizeColorAlpha.Image = global::ColorSelector.Properties.Resources.dice;
+      this.buttonRandomizeColorAlpha.Location = new System.Drawing.Point(353, 139);
+      this.buttonRandomizeColorAlpha.Name = "buttonRandomizeColorAlpha";
+      this.buttonRandomizeColorAlpha.Size = new System.Drawing.Size(27, 20);
+      this.buttonRandomizeColorAlpha.TabIndex = 18;
+      this.toolTipAppForm.SetToolTip(this.buttonRandomizeColorAlpha, "Wählt den Alpha-Anteil per Zufall");
+      this.buttonRandomizeColorAlpha.UseVisualStyleBackColor = true;
+      this.buttonRandomizeColorAlpha.Click += new System.EventHandler(this.buttonRandomizeColorAlpha_Click);
       // 
       // pictureBoxMathColorCodeCopyToClipboard
       // 
@@ -583,12 +593,94 @@
       this.buttonRandomizeColor.Location = new System.Drawing.Point(176, 320);
       this.buttonRandomizeColor.Name = "buttonRandomizeColor";
       this.buttonRandomizeColor.Size = new System.Drawing.Size(152, 32);
-      this.buttonRandomizeColor.TabIndex = 30;
-      this.buttonRandomizeColor.Text = "Farbkanäle randomisieren";
+      this.buttonRandomizeColor.TabIndex = 35;
+      this.buttonRandomizeColor.Text = "Farbkanäle ran&domisieren";
       this.buttonRandomizeColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.toolTipAppForm.SetToolTip(this.buttonRandomizeColor, "Randomisiert die Farbkanäle");
       this.buttonRandomizeColor.UseVisualStyleBackColor = true;
       this.buttonRandomizeColor.Click += new System.EventHandler(this.buttonRandomizeColor_Click);
+      // 
+      // contextMenuStripRandomizeColor
+      // 
+      this.contextMenuStripRandomizeColor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemRandomizeColorRGB,
+            this.toolStripSeparator5,
+            this.toolStripMenuItemRandomizeColorRG,
+            this.toolStripMenuItemRandomizeColorRB,
+            this.toolStripMenuItemRandomizeColorGB,
+            this.toolStripSeparator6,
+            this.toolStripMenuItemRandomizeColorR,
+            this.toolStripMenuItemRandomizeColorG,
+            this.toolStripMenuItemRandomizeColorB});
+      this.contextMenuStripRandomizeColor.Name = "contextMenuStripRandomizeColor";
+      this.contextMenuStripRandomizeColor.Size = new System.Drawing.Size(109, 170);
+      this.toolTipAppForm.SetToolTip(this.contextMenuStripRandomizeColor, "Randomiziert die Farbkanäle");
+      // 
+      // toolStripMenuItemRandomizeColorRGB
+      // 
+      this.toolStripMenuItemRandomizeColorRGB.Name = "toolStripMenuItemRandomizeColorRGB";
+      this.toolStripMenuItemRandomizeColorRGB.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorRGB.Text = "R, G, B";
+      this.toolStripMenuItemRandomizeColorRGB.ToolTipText = "Randomiziert die Farbkanäle R, G und B";
+      this.toolStripMenuItemRandomizeColorRGB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorRGB_Click);
+      // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      this.toolStripSeparator5.Size = new System.Drawing.Size(105, 6);
+      // 
+      // toolStripMenuItemRandomizeColorRG
+      // 
+      this.toolStripMenuItemRandomizeColorRG.Name = "toolStripMenuItemRandomizeColorRG";
+      this.toolStripMenuItemRandomizeColorRG.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorRG.Text = "R, G";
+      this.toolStripMenuItemRandomizeColorRG.ToolTipText = "Randomiziert die Farbkanäle R und G";
+      this.toolStripMenuItemRandomizeColorRG.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorRG_Click);
+      // 
+      // toolStripMenuItemRandomizeColorRB
+      // 
+      this.toolStripMenuItemRandomizeColorRB.Name = "toolStripMenuItemRandomizeColorRB";
+      this.toolStripMenuItemRandomizeColorRB.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorRB.Text = "R, B";
+      this.toolStripMenuItemRandomizeColorRB.ToolTipText = "Randomiziert die Farbkanäle R und B";
+      this.toolStripMenuItemRandomizeColorRB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorRB_Click);
+      // 
+      // toolStripMenuItemRandomizeColorGB
+      // 
+      this.toolStripMenuItemRandomizeColorGB.Name = "toolStripMenuItemRandomizeColorGB";
+      this.toolStripMenuItemRandomizeColorGB.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorGB.Text = "G, B";
+      this.toolStripMenuItemRandomizeColorGB.ToolTipText = "Randomiziert die Farbkanäle G und B";
+      this.toolStripMenuItemRandomizeColorGB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorGB_Click);
+      // 
+      // toolStripSeparator6
+      // 
+      this.toolStripSeparator6.Name = "toolStripSeparator6";
+      this.toolStripSeparator6.Size = new System.Drawing.Size(105, 6);
+      // 
+      // toolStripMenuItemRandomizeColorR
+      // 
+      this.toolStripMenuItemRandomizeColorR.Name = "toolStripMenuItemRandomizeColorR";
+      this.toolStripMenuItemRandomizeColorR.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorR.Text = "R";
+      this.toolStripMenuItemRandomizeColorR.ToolTipText = "Randomiziert den Farbkanal R";
+      this.toolStripMenuItemRandomizeColorR.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorR_Click);
+      // 
+      // toolStripMenuItemRandomizeColorG
+      // 
+      this.toolStripMenuItemRandomizeColorG.Name = "toolStripMenuItemRandomizeColorG";
+      this.toolStripMenuItemRandomizeColorG.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorG.Text = "G";
+      this.toolStripMenuItemRandomizeColorG.ToolTipText = "Randomiziert den Farbkanal G";
+      this.toolStripMenuItemRandomizeColorG.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorG_Click);
+      // 
+      // toolStripMenuItemRandomizeColorB
+      // 
+      this.toolStripMenuItemRandomizeColorB.Name = "toolStripMenuItemRandomizeColorB";
+      this.toolStripMenuItemRandomizeColorB.Size = new System.Drawing.Size(108, 22);
+      this.toolStripMenuItemRandomizeColorB.Text = "B";
+      this.toolStripMenuItemRandomizeColorB.ToolTipText = "Randomiziert den Farbkanal B";
+      this.toolStripMenuItemRandomizeColorB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorB_Click);
       // 
       // pictureBoxBindColorB
       // 
@@ -614,38 +706,38 @@
       this.toolTipAppForm.SetToolTip(this.pictureBoxBindColorG, "Grün-Kanal ist gebunden");
       this.pictureBoxBindColorG.Visible = false;
       // 
-      // buttonRandomColorBlue
+      // buttonRandomizeColorBlue
       // 
-      this.buttonRandomColorBlue.Image = global::ColorSelector.Properties.Resources.dice;
-      this.buttonRandomColorBlue.Location = new System.Drawing.Point(353, 99);
-      this.buttonRandomColorBlue.Name = "buttonRandomColorBlue";
-      this.buttonRandomColorBlue.Size = new System.Drawing.Size(27, 20);
-      this.buttonRandomColorBlue.TabIndex = 11;
-      this.toolTipAppForm.SetToolTip(this.buttonRandomColorBlue, "Wählt den Blau-Anteil per Zufall");
-      this.buttonRandomColorBlue.UseVisualStyleBackColor = true;
-      this.buttonRandomColorBlue.Click += new System.EventHandler(this.buttonRandomColorBlue_Click);
+      this.buttonRandomizeColorBlue.Image = global::ColorSelector.Properties.Resources.dice;
+      this.buttonRandomizeColorBlue.Location = new System.Drawing.Point(353, 99);
+      this.buttonRandomizeColorBlue.Name = "buttonRandomizeColorBlue";
+      this.buttonRandomizeColorBlue.Size = new System.Drawing.Size(27, 20);
+      this.buttonRandomizeColorBlue.TabIndex = 13;
+      this.toolTipAppForm.SetToolTip(this.buttonRandomizeColorBlue, "Wählt den Blau-Anteil per Zufall");
+      this.buttonRandomizeColorBlue.UseVisualStyleBackColor = true;
+      this.buttonRandomizeColorBlue.Click += new System.EventHandler(this.buttonRandomizeColorBlue_Click);
       // 
-      // buttonRandomColorGreen
+      // buttonRandomizeColorGreen
       // 
-      this.buttonRandomColorGreen.Image = global::ColorSelector.Properties.Resources.dice;
-      this.buttonRandomColorGreen.Location = new System.Drawing.Point(353, 60);
-      this.buttonRandomColorGreen.Name = "buttonRandomColorGreen";
-      this.buttonRandomColorGreen.Size = new System.Drawing.Size(27, 20);
-      this.buttonRandomColorGreen.TabIndex = 7;
-      this.toolTipAppForm.SetToolTip(this.buttonRandomColorGreen, "Wählt den Grün-Anteil per Zufall");
-      this.buttonRandomColorGreen.UseVisualStyleBackColor = true;
-      this.buttonRandomColorGreen.Click += new System.EventHandler(this.buttonRandomColorGreen_Click);
+      this.buttonRandomizeColorGreen.Image = global::ColorSelector.Properties.Resources.dice;
+      this.buttonRandomizeColorGreen.Location = new System.Drawing.Point(353, 60);
+      this.buttonRandomizeColorGreen.Name = "buttonRandomizeColorGreen";
+      this.buttonRandomizeColorGreen.Size = new System.Drawing.Size(27, 20);
+      this.buttonRandomizeColorGreen.TabIndex = 8;
+      this.toolTipAppForm.SetToolTip(this.buttonRandomizeColorGreen, "Wählt den Grün-Anteil per Zufall");
+      this.buttonRandomizeColorGreen.UseVisualStyleBackColor = true;
+      this.buttonRandomizeColorGreen.Click += new System.EventHandler(this.buttonRandomizeColorGreen_Click);
       // 
-      // buttonRandomColorRed
+      // buttonRandomizeColorRed
       // 
-      this.buttonRandomColorRed.Image = global::ColorSelector.Properties.Resources.dice;
-      this.buttonRandomColorRed.Location = new System.Drawing.Point(353, 22);
-      this.buttonRandomColorRed.Name = "buttonRandomColorRed";
-      this.buttonRandomColorRed.Size = new System.Drawing.Size(27, 20);
-      this.buttonRandomColorRed.TabIndex = 3;
-      this.toolTipAppForm.SetToolTip(this.buttonRandomColorRed, "Wählt den Rot-Anteil per Zufall");
-      this.buttonRandomColorRed.UseVisualStyleBackColor = true;
-      this.buttonRandomColorRed.Click += new System.EventHandler(this.buttonRandomColorRed_Click);
+      this.buttonRandomizeColorRed.Image = global::ColorSelector.Properties.Resources.dice;
+      this.buttonRandomizeColorRed.Location = new System.Drawing.Point(353, 22);
+      this.buttonRandomizeColorRed.Name = "buttonRandomizeColorRed";
+      this.buttonRandomizeColorRed.Size = new System.Drawing.Size(27, 20);
+      this.buttonRandomizeColorRed.TabIndex = 3;
+      this.toolTipAppForm.SetToolTip(this.buttonRandomizeColorRed, "Wählt den Rot-Anteil per Zufall");
+      this.buttonRandomizeColorRed.UseVisualStyleBackColor = true;
+      this.buttonRandomizeColorRed.Click += new System.EventHandler(this.buttonRandomizeColorRed_Click);
       // 
       // pictureBoxBindColorR
       // 
@@ -665,7 +757,7 @@
       this.buttonMathColorCode.Location = new System.Drawing.Point(353, 280);
       this.buttonMathColorCode.Name = "buttonMathColorCode";
       this.buttonMathColorCode.Size = new System.Drawing.Size(27, 20);
-      this.buttonMathColorCode.TabIndex = 27;
+      this.buttonMathColorCode.TabIndex = 32;
       this.toolTipAppForm.SetToolTip(this.buttonMathColorCode, "Kopiert den mathematischen Farbcode in die Zwischenablage");
       this.buttonMathColorCode.UseVisualStyleBackColor = true;
       this.buttonMathColorCode.Click += new System.EventHandler(this.buttonMathColorCode_Click);
@@ -676,7 +768,7 @@
       this.buttonHtmlColorCodeCopyToClipboard.Location = new System.Drawing.Point(353, 226);
       this.buttonHtmlColorCodeCopyToClipboard.Name = "buttonHtmlColorCodeCopyToClipboard";
       this.buttonHtmlColorCodeCopyToClipboard.Size = new System.Drawing.Size(27, 20);
-      this.buttonHtmlColorCodeCopyToClipboard.TabIndex = 21;
+      this.buttonHtmlColorCodeCopyToClipboard.TabIndex = 26;
       this.toolTipAppForm.SetToolTip(this.buttonHtmlColorCodeCopyToClipboard, "Kopiert den HTML-Farbcode in die Zwischenablage");
       this.buttonHtmlColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
       this.buttonHtmlColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonHtmlColorCodeCopyToClipboard_Click);
@@ -687,7 +779,7 @@
       this.buttonHexColorCodeCopyToClipboard.Location = new System.Drawing.Point(353, 200);
       this.buttonHexColorCodeCopyToClipboard.Name = "buttonHexColorCodeCopyToClipboard";
       this.buttonHexColorCodeCopyToClipboard.Size = new System.Drawing.Size(27, 20);
-      this.buttonHexColorCodeCopyToClipboard.TabIndex = 18;
+      this.buttonHexColorCodeCopyToClipboard.TabIndex = 23;
       this.toolTipAppForm.SetToolTip(this.buttonHexColorCodeCopyToClipboard, "Kopiert den HEX-Farbcode in die Zwischenablage");
       this.buttonHexColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
       this.buttonHexColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonHexColorCodeCopyToClipboard_Click);
@@ -698,7 +790,7 @@
       this.buttonRgbColorCodeCopyToClipboard.Location = new System.Drawing.Point(353, 252);
       this.buttonRgbColorCodeCopyToClipboard.Name = "buttonRgbColorCodeCopyToClipboard";
       this.buttonRgbColorCodeCopyToClipboard.Size = new System.Drawing.Size(27, 20);
-      this.buttonRgbColorCodeCopyToClipboard.TabIndex = 24;
+      this.buttonRgbColorCodeCopyToClipboard.TabIndex = 29;
       this.toolTipAppForm.SetToolTip(this.buttonRgbColorCodeCopyToClipboard, "Kopiert den RGB-Farbcode in die Zwischenablage");
       this.buttonRgbColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
       this.buttonRgbColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonRgbColorCodeCopyToClipboard_Click);
@@ -721,8 +813,8 @@
       this.buttonInvertColor.Location = new System.Drawing.Point(16, 320);
       this.buttonInvertColor.Name = "buttonInvertColor";
       this.buttonInvertColor.Size = new System.Drawing.Size(152, 31);
-      this.buttonInvertColor.TabIndex = 28;
-      this.buttonInvertColor.Text = "Farbkanäle invertieren";
+      this.buttonInvertColor.TabIndex = 33;
+      this.buttonInvertColor.Text = "Farbkanäle in&vertieren";
       this.buttonInvertColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.toolTipAppForm.SetToolTip(this.buttonInvertColor, "Invertiert die Farbkanäle");
       this.buttonInvertColor.UseVisualStyleBackColor = true;
@@ -735,8 +827,8 @@
       this.buttonSwapColor.Location = new System.Drawing.Point(16, 352);
       this.buttonSwapColor.Name = "buttonSwapColor";
       this.buttonSwapColor.Size = new System.Drawing.Size(152, 32);
-      this.buttonSwapColor.TabIndex = 29;
-      this.buttonSwapColor.Text = "Farbkanäle vertauschen";
+      this.buttonSwapColor.TabIndex = 34;
+      this.buttonSwapColor.Text = "Farbkanäle ver&tauschen";
       this.buttonSwapColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.toolTipAppForm.SetToolTip(this.buttonSwapColor, "Vertauscht die Farbkanäle");
       this.buttonSwapColor.UseVisualStyleBackColor = true;
@@ -748,7 +840,7 @@
       this.buttonInformation.Location = new System.Drawing.Point(334, 320);
       this.buttonInformation.Name = "buttonInformation";
       this.buttonInformation.Size = new System.Drawing.Size(101, 32);
-      this.buttonInformation.TabIndex = 31;
+      this.buttonInformation.TabIndex = 37;
       this.buttonInformation.Text = "&Information";
       this.buttonInformation.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.toolTipAppForm.SetToolTip(this.buttonInformation, "Zeigt Informationen über das Programm an");
@@ -763,8 +855,8 @@
       this.checkBoxEnableAlpha.Location = new System.Drawing.Point(305, 165);
       this.checkBoxEnableAlpha.Name = "checkBoxEnableAlpha";
       this.checkBoxEnableAlpha.Size = new System.Drawing.Size(140, 17);
-      this.checkBoxEnableAlpha.TabIndex = 17;
-      this.checkBoxEnableAlpha.Text = "Alpha-Kanal einschalten";
+      this.checkBoxEnableAlpha.TabIndex = 20;
+      this.checkBoxEnableAlpha.Text = "Alpha-&Kanal einschalten";
       this.toolTipAppForm.SetToolTip(this.checkBoxEnableAlpha, "Schaltet den Alpha-Kanal ein oder aus");
       this.checkBoxEnableAlpha.UseVisualStyleBackColor = true;
       this.checkBoxEnableAlpha.CheckedChanged += new System.EventHandler(this.checkBoxEnableAlpha_CheckedChanged);
@@ -775,8 +867,8 @@
       this.buttonInvertColorRed.Location = new System.Drawing.Point(386, 22);
       this.buttonInvertColorRed.Name = "buttonInvertColorRed";
       this.buttonInvertColorRed.Size = new System.Drawing.Size(27, 20);
-      this.buttonInvertColorRed.TabIndex = 37;
-      this.toolTipAppForm.SetToolTip(this.buttonInvertColorRed, "Wählt den Rot-Anteil per Zufall");
+      this.buttonInvertColorRed.TabIndex = 4;
+      this.toolTipAppForm.SetToolTip(this.buttonInvertColorRed, "Invertiert den Rot-Anteil");
       this.buttonInvertColorRed.UseVisualStyleBackColor = true;
       this.buttonInvertColorRed.Click += new System.EventHandler(this.buttonInvertColorRed_Click);
       // 
@@ -786,8 +878,8 @@
       this.buttonInvertColorGreen.Location = new System.Drawing.Point(386, 60);
       this.buttonInvertColorGreen.Name = "buttonInvertColorGreen";
       this.buttonInvertColorGreen.Size = new System.Drawing.Size(27, 20);
-      this.buttonInvertColorGreen.TabIndex = 38;
-      this.toolTipAppForm.SetToolTip(this.buttonInvertColorGreen, "Wählt den Rot-Anteil per Zufall");
+      this.buttonInvertColorGreen.TabIndex = 9;
+      this.toolTipAppForm.SetToolTip(this.buttonInvertColorGreen, "Invertiert den Grün-Anteil");
       this.buttonInvertColorGreen.UseVisualStyleBackColor = true;
       this.buttonInvertColorGreen.Click += new System.EventHandler(this.buttonInvertColorGreen_Click);
       // 
@@ -797,8 +889,8 @@
       this.buttonInvertColorBlue.Location = new System.Drawing.Point(386, 99);
       this.buttonInvertColorBlue.Name = "buttonInvertColorBlue";
       this.buttonInvertColorBlue.Size = new System.Drawing.Size(27, 20);
-      this.buttonInvertColorBlue.TabIndex = 39;
-      this.toolTipAppForm.SetToolTip(this.buttonInvertColorBlue, "Wählt den Rot-Anteil per Zufall");
+      this.buttonInvertColorBlue.TabIndex = 14;
+      this.toolTipAppForm.SetToolTip(this.buttonInvertColorBlue, "Invertiert den Blau-Anteil");
       this.buttonInvertColorBlue.UseVisualStyleBackColor = true;
       this.buttonInvertColorBlue.Click += new System.EventHandler(this.buttonInvertColorBlue_Click);
       // 
@@ -808,8 +900,8 @@
       this.buttonInvertColorAlpha.Location = new System.Drawing.Point(386, 139);
       this.buttonInvertColorAlpha.Name = "buttonInvertColorAlpha";
       this.buttonInvertColorAlpha.Size = new System.Drawing.Size(27, 20);
-      this.buttonInvertColorAlpha.TabIndex = 40;
-      this.toolTipAppForm.SetToolTip(this.buttonInvertColorAlpha, "Wählt den Rot-Anteil per Zufall");
+      this.buttonInvertColorAlpha.TabIndex = 19;
+      this.toolTipAppForm.SetToolTip(this.buttonInvertColorAlpha, "Invertiert den Alpha-Anteil");
       this.buttonInvertColorAlpha.UseVisualStyleBackColor = true;
       this.buttonInvertColorAlpha.Click += new System.EventHandler(this.buttonInvertColorAlpha_Click);
       // 
@@ -821,8 +913,8 @@
       this.buttonBindColor.Location = new System.Drawing.Point(176, 352);
       this.buttonBindColor.Name = "buttonBindColor";
       this.buttonBindColor.Size = new System.Drawing.Size(152, 32);
-      this.buttonBindColor.TabIndex = 41;
-      this.buttonBindColor.Text = "Farbkanäle binden";
+      this.buttonBindColor.TabIndex = 36;
+      this.buttonBindColor.Text = "Farbkanäle bind&en";
       this.buttonBindColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.toolTipAppForm.SetToolTip(this.buttonBindColor, "Randomisiert die Farbkanäle");
       this.buttonBindColor.UseVisualStyleBackColor = true;
@@ -834,8 +926,9 @@
       this.labelMathColorCode.Location = new System.Drawing.Point(147, 283);
       this.labelMathColorCode.Name = "labelMathColorCode";
       this.labelMathColorCode.Size = new System.Drawing.Size(88, 13);
-      this.labelMathColorCode.TabIndex = 25;
+      this.labelMathColorCode.TabIndex = 30;
       this.labelMathColorCode.Text = "&Mathe-Farbcode:";
+      this.toolTipAppForm.SetToolTip(this.labelMathColorCode, "Beschriftet den Mathe-Farbcode");
       // 
       // checkBoxWebsafeColor
       // 
@@ -844,8 +937,9 @@
       this.checkBoxWebsafeColor.Location = new System.Drawing.Point(334, 361);
       this.checkBoxWebsafeColor.Name = "checkBoxWebsafeColor";
       this.checkBoxWebsafeColor.Size = new System.Drawing.Size(87, 23);
-      this.checkBoxWebsafeColor.TabIndex = 16;
-      this.checkBoxWebsafeColor.Text = "Websafe Color";
+      this.checkBoxWebsafeColor.TabIndex = 38;
+      this.checkBoxWebsafeColor.Text = "&Websafe Color";
+      this.toolTipAppForm.SetToolTip(this.checkBoxWebsafeColor, "Zeigt die webkonformen Farben an");
       this.checkBoxWebsafeColor.UseVisualStyleBackColor = true;
       this.checkBoxWebsafeColor.Visible = false;
       this.checkBoxWebsafeColor.CheckedChanged += new System.EventHandler(this.checkBoxWebsafeColor_CheckedChanged);
@@ -861,86 +955,13 @@
       this.labelAlpha.Location = new System.Drawing.Point(13, 141);
       this.labelAlpha.Name = "labelAlpha";
       this.labelAlpha.Size = new System.Drawing.Size(34, 13);
-      this.labelAlpha.TabIndex = 12;
+      this.labelAlpha.TabIndex = 15;
       this.labelAlpha.Text = "&Alpha";
+      this.toolTipAppForm.SetToolTip(this.labelAlpha, "Beschriftet den Alpha-Anteil");
       // 
       // colorDialog
       // 
       this.colorDialog.AnyColor = true;
-      // 
-      // contextMenuStripRandomizeColor
-      // 
-      this.contextMenuStripRandomizeColor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemRandomizeColorRGB,
-            this.toolStripSeparator5,
-            this.toolStripMenuItemRandomizeColorRG,
-            this.toolStripMenuItemRandomizeColorRB,
-            this.toolStripMenuItemRandomizeColorGB,
-            this.toolStripSeparator6,
-            this.toolStripMenuItemRandomizeColorR,
-            this.toolStripMenuItemRandomizeColorG,
-            this.toolStripMenuItemRandomizeColorB});
-      this.contextMenuStripRandomizeColor.Name = "contextMenuStripRandomizeColor";
-      this.contextMenuStripRandomizeColor.Size = new System.Drawing.Size(153, 192);
-      // 
-      // toolStripMenuItemRandomizeColorRGB
-      // 
-      this.toolStripMenuItemRandomizeColorRGB.Name = "toolStripMenuItemRandomizeColorRGB";
-      this.toolStripMenuItemRandomizeColorRGB.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorRGB.Text = "R, G, B";
-      this.toolStripMenuItemRandomizeColorRGB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorRGB_Click);
-      // 
-      // toolStripSeparator5
-      // 
-      this.toolStripSeparator5.Name = "toolStripSeparator5";
-      this.toolStripSeparator5.Size = new System.Drawing.Size(105, 6);
-      // 
-      // toolStripMenuItemRandomizeColorRG
-      // 
-      this.toolStripMenuItemRandomizeColorRG.Name = "toolStripMenuItemRandomizeColorRG";
-      this.toolStripMenuItemRandomizeColorRG.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorRG.Text = "R, G";
-      this.toolStripMenuItemRandomizeColorRG.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorRG_Click);
-      // 
-      // toolStripMenuItemRandomizeColorRB
-      // 
-      this.toolStripMenuItemRandomizeColorRB.Name = "toolStripMenuItemRandomizeColorRB";
-      this.toolStripMenuItemRandomizeColorRB.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorRB.Text = "R, B";
-      this.toolStripMenuItemRandomizeColorRB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorRB_Click);
-      // 
-      // toolStripMenuItemRandomizeColorGB
-      // 
-      this.toolStripMenuItemRandomizeColorGB.Name = "toolStripMenuItemRandomizeColorGB";
-      this.toolStripMenuItemRandomizeColorGB.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorGB.Text = "G, B";
-      this.toolStripMenuItemRandomizeColorGB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorGB_Click);
-      // 
-      // toolStripSeparator6
-      // 
-      this.toolStripSeparator6.Name = "toolStripSeparator6";
-      this.toolStripSeparator6.Size = new System.Drawing.Size(105, 6);
-      // 
-      // toolStripMenuItemRandomizeColorR
-      // 
-      this.toolStripMenuItemRandomizeColorR.Name = "toolStripMenuItemRandomizeColorR";
-      this.toolStripMenuItemRandomizeColorR.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorR.Text = "R";
-      this.toolStripMenuItemRandomizeColorR.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorR_Click);
-      // 
-      // toolStripMenuItemRandomizeColorG
-      // 
-      this.toolStripMenuItemRandomizeColorG.Name = "toolStripMenuItemRandomizeColorG";
-      this.toolStripMenuItemRandomizeColorG.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorG.Text = "G";
-      this.toolStripMenuItemRandomizeColorG.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorG_Click);
-      // 
-      // toolStripMenuItemRandomizeColorB
-      // 
-      this.toolStripMenuItemRandomizeColorB.Name = "toolStripMenuItemRandomizeColorB";
-      this.toolStripMenuItemRandomizeColorB.Size = new System.Drawing.Size(152, 22);
-      this.toolStripMenuItemRandomizeColorB.Text = "B";
-      this.toolStripMenuItemRandomizeColorB.Click += new System.EventHandler(this.toolStripMenuItemRandomizeColorB_Click);
       // 
       // ColorSelectorForm
       // 
@@ -953,7 +974,7 @@
       this.Controls.Add(this.buttonInvertColorGreen);
       this.Controls.Add(this.buttonInvertColorRed);
       this.Controls.Add(this.checkBoxEnableAlpha);
-      this.Controls.Add(this.buttonRandomColorAlpha);
+      this.Controls.Add(this.buttonRandomizeColorAlpha);
       this.Controls.Add(this.numericUpDownColorAlpha);
       this.Controls.Add(this.trackBarColorAlpha);
       this.Controls.Add(this.labelAlpha);
@@ -964,9 +985,9 @@
       this.Controls.Add(this.buttonRandomizeColor);
       this.Controls.Add(this.pictureBoxBindColorB);
       this.Controls.Add(this.pictureBoxBindColorG);
-      this.Controls.Add(this.buttonRandomColorBlue);
-      this.Controls.Add(this.buttonRandomColorGreen);
-      this.Controls.Add(this.buttonRandomColorRed);
+      this.Controls.Add(this.buttonRandomizeColorBlue);
+      this.Controls.Add(this.buttonRandomizeColorGreen);
+      this.Controls.Add(this.buttonRandomizeColorRed);
       this.Controls.Add(this.pictureBoxBindColorR);
       this.Controls.Add(this.textBoxMathColorCode);
       this.Controls.Add(this.labelMathColorCode);
@@ -1000,6 +1021,7 @@
       this.Name = "ColorSelectorForm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Color Selector";
+      this.toolTipAppForm.SetToolTip(this, "Beschriftet den HEX-Farbcode");
       this.Load += new System.EventHandler(this.ColorSelectorForm_Load);
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorRed)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorGreen)).EndInit();
@@ -1016,11 +1038,11 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRgbColorCodeCopyToClipboard)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHtmlColorCodeCopyToClipboard)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHexColorCodeCopyToClipboard)).EndInit();
+      this.contextMenuStripRandomizeColor.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBindColorB)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBindColorG)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBindColorR)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorRGB)).EndInit();
-      this.contextMenuStripRandomizeColor.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1069,9 +1091,9 @@
     private System.Windows.Forms.Label labelMathColorCode;
     private System.Windows.Forms.CheckBox checkBoxWebsafeColor;
     private System.Windows.Forms.PictureBox pictureBoxBindColorR;
-    private System.Windows.Forms.Button buttonRandomColorRed;
-    private System.Windows.Forms.Button buttonRandomColorGreen;
-    private System.Windows.Forms.Button buttonRandomColorBlue;
+    private System.Windows.Forms.Button buttonRandomizeColorRed;
+    private System.Windows.Forms.Button buttonRandomizeColorGreen;
+    private System.Windows.Forms.Button buttonRandomizeColorBlue;
     private System.Windows.Forms.PictureBox pictureBoxBindColorG;
     private System.Windows.Forms.PictureBox pictureBoxBindColorB;
     private System.Windows.Forms.Button buttonRandomizeColor;
@@ -1088,7 +1110,7 @@
     private System.Windows.Forms.PictureBox pictureBoxHtmlColorCodeCopyToClipboard;
     private System.Windows.Forms.PictureBox pictureBoxMathColorCodeCopyToClipboard;
     private System.Windows.Forms.PictureBox pictureBoxRgbColorCodeCopyToClipboard;
-    private System.Windows.Forms.Button buttonRandomColorAlpha;
+    private System.Windows.Forms.Button buttonRandomizeColorAlpha;
     private System.Windows.Forms.NumericUpDown numericUpDownColorAlpha;
     private System.Windows.Forms.TrackBar trackBarColorAlpha;
     private System.Windows.Forms.Label labelAlpha;

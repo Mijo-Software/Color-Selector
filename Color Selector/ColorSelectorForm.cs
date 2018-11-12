@@ -411,7 +411,7 @@ pictureBoxColorRGB.BackgroundImage = null;
       numericUpDownColorBlue.Value = i;
     }
 
-    private void buttonRandomColorRed_Click(object sender, EventArgs e)
+    private void buttonRandomizeColorRed_Click(object sender, EventArgs e)
     {
       Random rnd = new Random();
       int i = rnd.Next(0, 255);
@@ -421,7 +421,7 @@ pictureBoxColorRGB.BackgroundImage = null;
       if (isColorRGBBind) { i = rnd.Next(0, 255); numericUpDownColorGreen.Value = i; i = rnd.Next(0, 255); numericUpDownColorBlue.Value = i; };
     }
 
-    private void buttonRandomColorGreen_Click(object sender, EventArgs e)
+    private void buttonRandomizeColorGreen_Click(object sender, EventArgs e)
     {
       Random rnd = new Random();
       int i = rnd.Next(0, 255);
@@ -431,7 +431,7 @@ pictureBoxColorRGB.BackgroundImage = null;
       if (isColorRGBBind) { i = rnd.Next(0, 255); numericUpDownColorRed.Value = i; i = rnd.Next(0, 255); numericUpDownColorBlue.Value = i; };
     }
 
-    private void buttonRandomColorBlue_Click(object sender, EventArgs e)
+    private void buttonRandomizeColorBlue_Click(object sender, EventArgs e)
     {
       Random rnd = new Random();
       int i = rnd.Next(0, 255);
@@ -441,7 +441,7 @@ pictureBoxColorRGB.BackgroundImage = null;
       if (isColorRGBBind) { i = rnd.Next(0, 255); numericUpDownColorRed.Value = i; i = rnd.Next(0, 255); numericUpDownColorGreen.Value = i; };
     }
 
-    private void buttonRandomColorAlpha_Click(object sender, EventArgs e)
+    private void buttonRandomizeColorAlpha_Click(object sender, EventArgs e)
     {
       Random rnd = new Random();
       int i = rnd.Next(0, 255);
@@ -543,13 +543,13 @@ pictureBoxColorRGB.BackgroundImage = null;
         labelAlpha.Enabled = true;
         trackBarColorAlpha.Enabled = true;
         numericUpDownColorAlpha.Enabled = true;
-        buttonRandomColorAlpha.Enabled = true;
+        buttonRandomizeColorAlpha.Enabled = true;
         buttonInvertColorAlpha.Enabled = true;
       } else {
         labelAlpha.Enabled = false;
         trackBarColorAlpha.Enabled = false;
         numericUpDownColorAlpha.Enabled = false;
-        buttonRandomColorAlpha.Enabled = false;
+        buttonRandomizeColorAlpha.Enabled = false;
         buttonInvertColorAlpha.Enabled = false;
       }
 
