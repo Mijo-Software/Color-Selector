@@ -21,8 +21,21 @@ namespace ColorSelector
     public ColorSelectorForm()
     {
       InitializeComponent();
+      this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
     }
-  
+
+    private void ColorSelectorForm_Load(object sender, EventArgs e)
+    {
+      //pictureBoxColorRGB.Image = new Bitmap("C:\\Users\\micha_000\\Documents\\Visual Studio 2015\\Projects\\Color Selector\\Color Selector\\Resources\\information.png");
+      Random rnd = new Random();
+      numericUpDownColorRed.Value = rnd.Next(0, 255);
+      numericUpDownColorGreen.Value = rnd.Next(0, 255);
+      numericUpDownColorBlue.Value = rnd.Next(0, 255);
+      numericUpDownColorAlpha.Value = rnd.Next(0, 255);
+      checkBoxEnableAlpha.Checked = true;
+      ChangePicBoxColor();
+    }
+
     private void ChangePicBoxColor()
     {
       string strColorRedHex = string.Format("{0:X}", trackBarColorRed.Value);
@@ -46,8 +59,7 @@ namespace ColorSelector
       string strColorAlphaMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorAlpha.Value / 255);
 
       if (checkBoxEnableAlpha.Checked) pictureBoxColorRGB.BackColor = Color.FromArgb(trackBarColorAlpha.Value, trackBarColorRed.Value, trackBarColorGreen.Value, trackBarColorBlue.Value); else pictureBoxColorRGB.BackColor = Color.FromArgb(255, trackBarColorRed.Value, trackBarColorGreen.Value, trackBarColorBlue.Value);
-
-pictureBoxColorRGB.BackgroundImage = null;
+      //ColorSelectorForm_Paint(this, null);
 
       if (checkBoxEnableAlpha.Checked)
       {
@@ -184,17 +196,6 @@ pictureBoxColorRGB.BackgroundImage = null;
       formAboutBox.ShowDialog();
     }
 
-    private void ColorSelectorForm_Load(object sender, EventArgs e)
-    {
-      Random rnd = new Random();
-      numericUpDownColorRed.Value = rnd.Next(0, 255);
-      numericUpDownColorGreen.Value = rnd.Next(0, 255); 
-      numericUpDownColorBlue.Value = rnd.Next(0, 255);
-      numericUpDownColorAlpha.Value = rnd.Next(0, 255);
-      checkBoxEnableAlpha.Checked = true;
-      ChangePicBoxColor();
-    }
-
     private void buttonHexColorCodeCopyToClipboard_Click(object sender, EventArgs e)
     {
       pictureBoxHexColorCodeCopyToClipboard.Visible = true;
@@ -299,7 +300,6 @@ pictureBoxColorRGB.BackgroundImage = null;
       invertColorGreen();
       invertColorBlue();
       if (checkBoxEnableAlpha.Checked) invertColorAlpha();
-      //contextMenuStripInvertColor.Show(buttonInvertColor, 0, buttonInvertColor.Size.Height);
     }
 
     private void buttonSwapColor_Click(object sender, EventArgs e)
@@ -661,6 +661,39 @@ pictureBoxColorRGB.BackgroundImage = null;
       Random rnd = new Random();
       int i = rnd.Next(0, 255);
       numericUpDownColorBlue.Value = i;
+    }
+
+    private void pictureBoxColorRGB_DoubleClick(object sender, EventArgs e)
+    {
+      colorDialog.AllowFullOpen = true;
+      colorDialog.AnyColor = false;
+      colorDialog.FullOpen = false;
+      colorDialog.ShowHelp = false;
+      colorDialog.SolidColorOnly = false;
+      colorDialog.Color = pictureBoxColorRGB.BackColor;
+      if (colorDialog.ShowDialog() == DialogResult.OK)
+      {
+        numericUpDownColorRed.Value = colorDialog.Color.R;
+        numericUpDownColorGreen.Value = colorDialog.Color.G;
+        numericUpDownColorBlue.Value = colorDialog.Color.B;
+        if (checkBoxEnableAlpha.Checked) numericUpDownColorAlpha.Value = colorDialog.Color.A;
+      }
+    }
+
+    private void ColorSelectorForm_Paint(object sender, PaintEventArgs e)
+    {
+      /*Graphics g = e.Graphics;
+      Pen opaquePen = new Pen(Color.FromArgb(255, 0, 0, 255), 15);
+      Pen semiTransPen = new Pen(Color.FromArgb(128, 0, 0, 255), 15);
+      SolidBrush opaqueBrush = new SolidBrush(pictureBoxColorRGB.BackColor);
+      g.DrawLine(opaquePen, 0, 20, 100, 20);
+      g.DrawLine(semiTransPen, 0, 40, 100, 40);
+      g.FillRectangle(opaqueBrush, pictureBoxColorRGB.Bounds);*/
+    }
+
+    protected override void OnPaint(PaintEventArgs e)
+    {
+      //base.OnPaint(e);
     }
   }
 }

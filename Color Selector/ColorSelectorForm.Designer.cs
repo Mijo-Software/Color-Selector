@@ -109,8 +109,8 @@
       this.buttonBindColor = new System.Windows.Forms.Button();
       this.labelMathColorCode = new System.Windows.Forms.Label();
       this.checkBoxWebsafeColor = new System.Windows.Forms.CheckBox();
-      this.timer = new System.Windows.Forms.Timer(this.components);
       this.labelAlpha = new System.Windows.Forms.Label();
+      this.timer = new System.Windows.Forms.Timer(this.components);
       this.colorDialog = new System.Windows.Forms.ColorDialog();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorRed)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorGreen)).BeginInit();
@@ -797,7 +797,7 @@
       // 
       // pictureBoxColorRGB
       // 
-      this.pictureBoxColorRGB.BackgroundImage = global::ColorSelector.Properties.Resources.bg;
+      this.pictureBoxColorRGB.BackColor = System.Drawing.Color.Transparent;
       this.pictureBoxColorRGB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.pictureBoxColorRGB.Location = new System.Drawing.Point(16, 192);
       this.pictureBoxColorRGB.Name = "pictureBoxColorRGB";
@@ -805,6 +805,7 @@
       this.pictureBoxColorRGB.TabIndex = 9;
       this.pictureBoxColorRGB.TabStop = false;
       this.toolTipAppForm.SetToolTip(this.pictureBoxColorRGB, "Zeigt die Farbe an");
+      this.pictureBoxColorRGB.DoubleClick += new System.EventHandler(this.pictureBoxColorRGB_DoubleClick);
       // 
       // buttonInvertColor
       // 
@@ -908,6 +909,7 @@
       // buttonBindColor
       // 
       this.buttonBindColor.ContextMenuStrip = this.contextMenuStripBindColor;
+      this.buttonBindColor.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.buttonBindColor.Enabled = false;
       this.buttonBindColor.Image = global::ColorSelector.Properties.Resources.link;
       this.buttonBindColor.Location = new System.Drawing.Point(176, 352);
@@ -944,11 +946,6 @@
       this.checkBoxWebsafeColor.Visible = false;
       this.checkBoxWebsafeColor.CheckedChanged += new System.EventHandler(this.checkBoxWebsafeColor_CheckedChanged);
       // 
-      // timer
-      // 
-      this.timer.Interval = 250;
-      this.timer.Tick += new System.EventHandler(this.timer_Tick);
-      // 
       // labelAlpha
       // 
       this.labelAlpha.AutoSize = true;
@@ -958,6 +955,11 @@
       this.labelAlpha.TabIndex = 15;
       this.labelAlpha.Text = "&Alpha";
       this.toolTipAppForm.SetToolTip(this.labelAlpha, "Beschriftet den Alpha-Anteil");
+      // 
+      // timer
+      // 
+      this.timer.Interval = 250;
+      this.timer.Tick += new System.EventHandler(this.timer_Tick);
       // 
       // colorDialog
       // 
@@ -1023,6 +1025,7 @@
       this.Text = "Color Selector";
       this.toolTipAppForm.SetToolTip(this, "Beschriftet den HEX-Farbcode");
       this.Load += new System.EventHandler(this.ColorSelectorForm_Load);
+      this.Paint += new System.Windows.Forms.PaintEventHandler(this.ColorSelectorForm_Paint);
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorRed)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorGreen)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorBlue)).EndInit();
