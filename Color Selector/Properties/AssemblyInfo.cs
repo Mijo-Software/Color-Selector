@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Color Selector")]
 [assembly: AssemblyDescription("Mit 'Color Selector' können alle RGB-Farben erzeugt und bearbeitet werden.\n\n Dieses Entwicklungstool eignet sich besonders für Webdesigner und Programmierer.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Mijo Soft")]
+[assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("Color Selector")]
-[assembly: AssemblyCopyright("2010 Michael Johne <michael-johne@gmx.de>")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("2010-2015 Michael Johne <michael-johne@gmx.de>")]
+[assembly: AssemblyTrademark("Color Selector")]
 [assembly: AssemblyCulture("")]
 
 // Durch Festlegen von ComVisible auf "false" werden die Typen in dieser Assembly unsichtbar 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.1.6")]
-[assembly: AssemblyFileVersion("1.2.1.6")]
+[assembly: AssemblyVersion("1.3.0.7")]
+[assembly: AssemblyFileVersion("1.3.0.7")]
