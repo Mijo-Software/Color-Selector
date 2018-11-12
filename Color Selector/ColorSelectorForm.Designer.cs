@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColorSelectorForm));
       this.label1 = new System.Windows.Forms.Label();
       this.trackBarColorRed = new System.Windows.Forms.TrackBar();
@@ -50,6 +51,7 @@
       this.numericUpDownColorRed = new System.Windows.Forms.NumericUpDown();
       this.numericUpDownColorGreen = new System.Windows.Forms.NumericUpDown();
       this.numericUpDownColorBlue = new System.Windows.Forms.NumericUpDown();
+      this.toolTipAppForm = new System.Windows.Forms.ToolTip(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorRed)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorGreen)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.trackBarColorBlue)).BeginInit();
@@ -78,6 +80,7 @@
       this.trackBarColorRed.TabIndex = 1;
       this.trackBarColorRed.TickFrequency = 26;
       this.trackBarColorRed.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+      this.toolTipAppForm.SetToolTip(this.trackBarColorRed, "Bestimmt den Rot-Anteil der Farbe");
       this.trackBarColorRed.Scroll += new System.EventHandler(this.trackBarColorRed_Scroll);
       // 
       // trackBarColorGreen
@@ -90,6 +93,7 @@
       this.trackBarColorGreen.TabIndex = 4;
       this.trackBarColorGreen.TickFrequency = 26;
       this.trackBarColorGreen.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+      this.toolTipAppForm.SetToolTip(this.trackBarColorGreen, "Bestimmt den Grün-Anteil der Farbe");
       this.trackBarColorGreen.Scroll += new System.EventHandler(this.trackBarColorGreen_Scroll);
       // 
       // label2
@@ -111,6 +115,7 @@
       this.trackBarColorBlue.TabIndex = 7;
       this.trackBarColorBlue.TickFrequency = 26;
       this.trackBarColorBlue.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+      this.toolTipAppForm.SetToolTip(this.trackBarColorBlue, "Bestimmt den Blau-Anteil der Farbe");
       this.trackBarColorBlue.Scroll += new System.EventHandler(this.trackBarColorBlue_Scroll);
       // 
       // label3
@@ -130,6 +135,7 @@
       this.pictureBoxColorRGB.Size = new System.Drawing.Size(125, 125);
       this.pictureBoxColorRGB.TabIndex = 9;
       this.pictureBoxColorRGB.TabStop = false;
+      this.toolTipAppForm.SetToolTip(this.pictureBoxColorRGB, "Zeigt die Farbe an");
       // 
       // label4
       // 
@@ -146,6 +152,7 @@
       this.textBoxHexColorCode.Name = "textBoxHexColorCode";
       this.textBoxHexColorCode.Size = new System.Drawing.Size(81, 20);
       this.textBoxHexColorCode.TabIndex = 10;
+      this.toolTipAppForm.SetToolTip(this.textBoxHexColorCode, "Zeigt den HEX-Farbcode an");
       // 
       // textBoxHtmlColorCode
       // 
@@ -153,6 +160,7 @@
       this.textBoxHtmlColorCode.Name = "textBoxHtmlColorCode";
       this.textBoxHtmlColorCode.Size = new System.Drawing.Size(81, 20);
       this.textBoxHtmlColorCode.TabIndex = 13;
+      this.toolTipAppForm.SetToolTip(this.textBoxHtmlColorCode, "Zeigt den HTML-Farbcode an");
       // 
       // label5
       // 
@@ -172,6 +180,7 @@
       this.buttonInformation.TabIndex = 18;
       this.buttonInformation.Text = "&Information";
       this.buttonInformation.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+      this.toolTipAppForm.SetToolTip(this.buttonInformation, "Zeigt Informationen über das Programm an");
       this.buttonInformation.UseVisualStyleBackColor = true;
       this.buttonInformation.Click += new System.EventHandler(this.buttonInformation_Click);
       // 
@@ -184,6 +193,7 @@
       this.buttonEnd.TabIndex = 19;
       this.buttonEnd.Text = "B&eenden";
       this.buttonEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+      this.toolTipAppForm.SetToolTip(this.buttonEnd, "Beendet das Programm");
       this.buttonEnd.UseVisualStyleBackColor = true;
       this.buttonEnd.Click += new System.EventHandler(this.buttonEnd_Click);
       // 
@@ -193,6 +203,7 @@
       this.textBoxRgbColorCode.Name = "textBoxRgbColorCode";
       this.textBoxRgbColorCode.Size = new System.Drawing.Size(81, 20);
       this.textBoxRgbColorCode.TabIndex = 16;
+      this.toolTipAppForm.SetToolTip(this.textBoxRgbColorCode, "Zeigt den RGB-Farbcode an");
       // 
       // label6
       // 
@@ -210,6 +221,7 @@
       this.buttonHexColorCodeCopyToClipboard.Name = "buttonHexColorCodeCopyToClipboard";
       this.buttonHexColorCodeCopyToClipboard.Size = new System.Drawing.Size(27, 20);
       this.buttonHexColorCodeCopyToClipboard.TabIndex = 11;
+      this.toolTipAppForm.SetToolTip(this.buttonHexColorCodeCopyToClipboard, "Kopiert den HEX-Farbcode in die Zwischenablage");
       this.buttonHexColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
       this.buttonHexColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonHexColorCodeCopyToClipboard_Click);
       // 
@@ -220,6 +232,7 @@
       this.buttonHtmlColorCodeCopyToClipboard.Name = "buttonHtmlColorCodeCopyToClipboard";
       this.buttonHtmlColorCodeCopyToClipboard.Size = new System.Drawing.Size(27, 20);
       this.buttonHtmlColorCodeCopyToClipboard.TabIndex = 14;
+      this.toolTipAppForm.SetToolTip(this.buttonHtmlColorCodeCopyToClipboard, "Kopiert den HTML-Farbcode in die Zwischenablage");
       this.buttonHtmlColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
       this.buttonHtmlColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonHtmlColorCodeCopyToClipboard_Click);
       // 
@@ -230,6 +243,7 @@
       this.buttonRgbColorCodeCopyToClipboard.Name = "buttonRgbColorCodeCopyToClipboard";
       this.buttonRgbColorCodeCopyToClipboard.Size = new System.Drawing.Size(27, 20);
       this.buttonRgbColorCodeCopyToClipboard.TabIndex = 17;
+      this.toolTipAppForm.SetToolTip(this.buttonRgbColorCodeCopyToClipboard, "Kopiert den RGB-Farbcode in die Zwischenablage");
       this.buttonRgbColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
       this.buttonRgbColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonRgbColorCodeCopyToClipboard_Click);
       // 
@@ -244,6 +258,7 @@
       this.numericUpDownColorRed.Name = "numericUpDownColorRed";
       this.numericUpDownColorRed.Size = new System.Drawing.Size(42, 20);
       this.numericUpDownColorRed.TabIndex = 2;
+      this.toolTipAppForm.SetToolTip(this.numericUpDownColorRed, "Bestimmt den Rot-Anteil der Farbe");
       this.numericUpDownColorRed.ValueChanged += new System.EventHandler(this.numericUpDownColorRed_ValueChanged);
       // 
       // numericUpDownColorGreen
@@ -257,6 +272,7 @@
       this.numericUpDownColorGreen.Name = "numericUpDownColorGreen";
       this.numericUpDownColorGreen.Size = new System.Drawing.Size(42, 20);
       this.numericUpDownColorGreen.TabIndex = 5;
+      this.toolTipAppForm.SetToolTip(this.numericUpDownColorGreen, "Bestimmt den Grün-Anteil der Farbe");
       this.numericUpDownColorGreen.ValueChanged += new System.EventHandler(this.numericUpDownColorGreen_ValueChanged);
       // 
       // numericUpDownColorBlue
@@ -270,6 +286,7 @@
       this.numericUpDownColorBlue.Name = "numericUpDownColorBlue";
       this.numericUpDownColorBlue.Size = new System.Drawing.Size(42, 20);
       this.numericUpDownColorBlue.TabIndex = 8;
+      this.toolTipAppForm.SetToolTip(this.numericUpDownColorBlue, "Bestimmt den Blau-Anteil der Farbe");
       this.numericUpDownColorBlue.ValueChanged += new System.EventHandler(this.numericUpDownColorBlue_ValueChanged);
       // 
       // ColorSelectorForm
@@ -340,6 +357,7 @@
     private System.Windows.Forms.NumericUpDown numericUpDownColorRed;
     private System.Windows.Forms.NumericUpDown numericUpDownColorGreen;
     private System.Windows.Forms.NumericUpDown numericUpDownColorBlue;
+    private System.Windows.Forms.ToolTip toolTipAppForm;
   }
 }
 

@@ -27,6 +27,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBoxForm));
       this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
       this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@
       this.labelCompanyName = new System.Windows.Forms.Label();
       this.textBoxDescription = new System.Windows.Forms.TextBox();
       this.okButton = new System.Windows.Forms.Button();
+      this.toolTipAboutBox = new System.Windows.Forms.ToolTip(this.components);
       this.tableLayoutPanel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
       this.SuspendLayout();
@@ -72,71 +74,77 @@
       this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
       this.logoPictureBox.Name = "logoPictureBox";
       this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
-      this.logoPictureBox.Size = new System.Drawing.Size(33, 158);
+      this.logoPictureBox.Size = new System.Drawing.Size(34, 158);
       this.logoPictureBox.TabIndex = 12;
       this.logoPictureBox.TabStop = false;
+      this.toolTipAboutBox.SetToolTip(this.logoPictureBox, "Programm-Icon");
       // 
       // labelProductName
       // 
       this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.labelProductName.Location = new System.Drawing.Point(45, 0);
+      this.labelProductName.Location = new System.Drawing.Point(46, 0);
       this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
       this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
       this.labelProductName.Name = "labelProductName";
-      this.labelProductName.Size = new System.Drawing.Size(259, 16);
-      this.labelProductName.TabIndex = 19;
+      this.labelProductName.Size = new System.Drawing.Size(258, 16);
+      this.labelProductName.TabIndex = 0;
       this.labelProductName.Text = "Produktname";
       this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.toolTipAboutBox.SetToolTip(this.labelProductName, "Zeigt den Produktnamen an");
       // 
       // labelVersion
       // 
       this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.labelVersion.Location = new System.Drawing.Point(45, 16);
+      this.labelVersion.Location = new System.Drawing.Point(46, 16);
       this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
       this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
       this.labelVersion.Name = "labelVersion";
-      this.labelVersion.Size = new System.Drawing.Size(259, 16);
-      this.labelVersion.TabIndex = 0;
+      this.labelVersion.Size = new System.Drawing.Size(258, 16);
+      this.labelVersion.TabIndex = 1;
       this.labelVersion.Text = "Version";
       this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.toolTipAboutBox.SetToolTip(this.labelVersion, "Zeigt die Version des Programms an");
       // 
       // labelCopyright
       // 
       this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.labelCopyright.Location = new System.Drawing.Point(45, 32);
+      this.labelCopyright.Location = new System.Drawing.Point(46, 32);
       this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
       this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
       this.labelCopyright.Name = "labelCopyright";
-      this.labelCopyright.Size = new System.Drawing.Size(259, 16);
-      this.labelCopyright.TabIndex = 21;
+      this.labelCopyright.Size = new System.Drawing.Size(258, 16);
+      this.labelCopyright.TabIndex = 2;
       this.labelCopyright.Text = "Copyright";
       this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.toolTipAboutBox.SetToolTip(this.labelCopyright, "Zeigt den Copyright-Vermerk an");
       // 
       // labelCompanyName
       // 
       this.labelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.labelCompanyName.Location = new System.Drawing.Point(45, 48);
+      this.labelCompanyName.Location = new System.Drawing.Point(46, 48);
       this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
       this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
       this.labelCompanyName.Name = "labelCompanyName";
-      this.labelCompanyName.Size = new System.Drawing.Size(259, 16);
-      this.labelCompanyName.TabIndex = 22;
+      this.labelCompanyName.Size = new System.Drawing.Size(258, 16);
+      this.labelCompanyName.TabIndex = 3;
       this.labelCompanyName.Text = "Firmenname";
       this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.toolTipAboutBox.SetToolTip(this.labelCompanyName, "Zeigt den Firmenname an");
       // 
       // textBoxDescription
       // 
       this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxDescription.Location = new System.Drawing.Point(45, 67);
+      this.textBoxDescription.Location = new System.Drawing.Point(46, 67);
       this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
       this.textBoxDescription.Multiline = true;
       this.textBoxDescription.Name = "textBoxDescription";
       this.textBoxDescription.ReadOnly = true;
       this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-      this.textBoxDescription.Size = new System.Drawing.Size(259, 61);
-      this.textBoxDescription.TabIndex = 23;
+      this.textBoxDescription.Size = new System.Drawing.Size(258, 61);
+      this.textBoxDescription.TabIndex = 4;
       this.textBoxDescription.TabStop = false;
       this.textBoxDescription.Text = "Beschreibung";
+      this.toolTipAboutBox.SetToolTip(this.textBoxDescription, "Zeigt die Beschreibung des Programm an");
       // 
       // okButton
       // 
@@ -146,9 +154,10 @@
       this.okButton.Location = new System.Drawing.Point(245, 138);
       this.okButton.Name = "okButton";
       this.okButton.Size = new System.Drawing.Size(59, 23);
-      this.okButton.TabIndex = 24;
+      this.okButton.TabIndex = 5;
       this.okButton.Text = "&OK";
       this.okButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+      this.toolTipAboutBox.SetToolTip(this.okButton, "OK");
       this.okButton.Click += new System.EventHandler(this.okButton_Click);
       // 
       // AboutBoxForm
@@ -184,5 +193,6 @@
     private System.Windows.Forms.Label labelCompanyName;
     private System.Windows.Forms.TextBox textBoxDescription;
     private System.Windows.Forms.Button okButton;
+    private System.Windows.Forms.ToolTip toolTipAboutBox;
   }
 }
