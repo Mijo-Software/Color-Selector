@@ -13,7 +13,7 @@ namespace ColorSelector
     static void Main()
     {
       Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
+      Application.SetCompatibleTextRenderingDefault(true);
       Application.Run(new ColorSelectorForm());
     }
   }

@@ -17,7 +17,6 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,8 +27,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>9</ApplicationRevision>
-    <ApplicationVersion>1.4.0.%2a</ApplicationVersion>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -49,7 +49,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
@@ -116,13 +115,6 @@
   <ItemGroup>
     <Content Include="ColorSelector_Icon1-old.ico" />
     <Content Include="ColorSelector_Icon2-new.ico" />
-    <None Include="Resources\tick.png" />
-    <None Include="Resources\link.png" />
-    <None Include="Resources\information.png" />
-    <None Include="Resources\dice.png" />
-    <None Include="Resources\contrast.png" />
-    <None Include="Resources\bullet_link.png" />
-    <None Include="Resources\arrow_switch.png" />
     <None Include="Resources\door.png" />
     <None Include="Resources\bg.png" />
   </ItemGroup>
