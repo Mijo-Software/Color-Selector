@@ -11,206 +11,481 @@ namespace ColorSelector
 {
   public partial class ColorSelectorForm : Form
   {
+
+    bool isColorNoneBind = true;
+    bool isColorRGBind = false;
+    bool isColorRBBind = false;
+    bool isColorGBBind = false;
+    bool isColorRGBBind = false;
+
     public ColorSelectorForm()
     {
-      InitializeComponent();
+        InitializeComponent();
     }
   
     private void ChangePicBoxColor()
     {
-      string strColorRedHex = string.Format("{0:X}", trackBarColorRed.Value);
-      if (trackBarColorRed.Value < 10) strColorRedHex = "0" + strColorRedHex;
+        string strColorRedHex = string.Format("{0:X}", trackBarColorRed.Value);
+        if (trackBarColorRed.Value < 10) strColorRedHex = "0" + strColorRedHex;
 
-      string strColorGreenHex = string.Format("{0:X}", trackBarColorGreen.Value);
-      if (trackBarColorGreen.Value < 10) strColorGreenHex = "0" + strColorGreenHex;
+        string strColorGreenHex = string.Format("{0:X}", trackBarColorGreen.Value);
+        if (trackBarColorGreen.Value < 10) strColorGreenHex = "0" + strColorGreenHex;
 
-      string strColorBlueHex = string.Format("{0:X}", trackBarColorBlue.Value);
-      if (trackBarColorBlue.Value < 10) strColorBlueHex = "0" + strColorBlueHex;
+        string strColorBlueHex = string.Format("{0:X}", trackBarColorBlue.Value);
+        if (trackBarColorBlue.Value < 10) strColorBlueHex = "0" + strColorBlueHex;
 
-      string strColorRedMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorRed.Value / 255);
-      string strColorGreenMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorGreen.Value / 255);
-      string strColorBlueMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorBlue.Value / 255);
-      
-      pictureBoxColorRGB.BackColor = Color.FromArgb(trackBarColorRed.Value, trackBarColorGreen.Value, trackBarColorBlue.Value);
+        string strColorAlphaHex = string.Format("{0:X}", trackBarColorAlpha.Value);
+        if (trackBarColorAlpha.Value < 10) strColorAlphaHex = "0" + strColorAlphaHex;
 
-      textBoxHexColorCode.Text = "$" + strColorBlueHex + strColorGreenHex + strColorRedHex;
-      textBoxHtmlColorCode.Text = "#" + strColorRedHex + strColorGreenHex + strColorBlueHex;
-      textBoxRgbColorCode.Text = "(" + trackBarColorRed.Value + ", " + trackBarColorGreen.Value + ", " + trackBarColorBlue.Value + ")";
-      textBoxMathColorCode.Text = strColorRedMath + ", " + strColorGreenMath + ", " + strColorBlueMath;
+        string strColorRedMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorRed.Value / 255);
+        string strColorGreenMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorGreen.Value / 255);
+        string strColorBlueMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorBlue.Value / 255);
+        string strColorAlphaMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarColorAlpha.Value / 255);
+
+        pictureBoxColorRGB.BackColor = Color.FromArgb(trackBarColorAlpha.Value, trackBarColorRed.Value, trackBarColorGreen.Value, trackBarColorBlue.Value);
+        pictureBoxColorRGB.BackgroundImage = null;
+
+        textBoxHexColorCode.Text = "$" + strColorAlphaHex + strColorBlueHex + strColorGreenHex + strColorRedHex;
+        textBoxHtmlColorCode.Text = "#" + strColorRedHex + strColorGreenHex + strColorBlueHex + strColorAlphaHex;
+        textBoxRgbColorCode.Text = "(" + trackBarColorRed.Value + ", " + trackBarColorGreen.Value + ", " + trackBarColorBlue.Value + ", " + trackBarColorAlpha.Value + ")";
+        textBoxMathColorCode.Text = strColorRedMath + ", " + strColorGreenMath + ", " + strColorBlueMath + ", " + strColorAlphaMath;
     }
 
     private void trackBarColorRed_Scroll(object sender, EventArgs e)
     {
-      numericUpDownColorRed.Value = trackBarColorRed.Value;
-      ChangePicBoxColor();
+        int oldRedValue = (int)numericUpDownColorRed.Value;
+        numericUpDownColorRed.Value = trackBarColorRed.Value;
+        if (isColorRGBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+            if (n > 0 && n < 255)
+            {
+                    numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+                    numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+        if (isColorRBBind)
+        {
+            int n = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+        if (isColorRGBBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+            int n2 = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+            if (n > 0 && n < 255 && n2 > 0 && n2 < 255)
+            {
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+        ChangePicBoxColor();
     }
 
     private void trackBarColorGreen_Scroll(object sender, EventArgs e)
     {
-      numericUpDownColorGreen.Value = trackBarColorGreen.Value;
-      ChangePicBoxColor();
+        int oldGreenValue = (int)numericUpDownColorGreen.Value;
+        numericUpDownColorGreen.Value = trackBarColorGreen.Value;
+        if (isColorRGBind)
+        {
+            int n = trackBarColorRed.Value + (trackBarColorGreen.Value - oldGreenValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorRed.Value = trackBarColorRed.Value + (trackBarColorGreen.Value - oldGreenValue);
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value;
+            }
+        }
+        if (isColorGBBind)
+        {
+            int n = trackBarColorBlue.Value + (trackBarColorGreen.Value - oldGreenValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value + (trackBarColorGreen.Value - oldGreenValue);
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value;
+            }
+        }
+        if (isColorRGBBind)
+        {
+            int n = trackBarColorRed.Value + (trackBarColorGreen.Value - oldGreenValue);
+            int n2 = trackBarColorBlue.Value + (trackBarColorGreen.Value - oldGreenValue);
+            if (n > 0 && n < 255 && n2 > 0 && n2 < 255)
+            {
+                numericUpDownColorRed.Value = trackBarColorRed.Value + (trackBarColorGreen.Value - oldGreenValue);
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value + (trackBarColorGreen.Value - oldGreenValue);
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value;
+            }
+        }
+        ChangePicBoxColor();
     }
 
     private void trackBarColorBlue_Scroll(object sender, EventArgs e)
     {
-      numericUpDownColorBlue.Value = trackBarColorBlue.Value;
-      ChangePicBoxColor();
+        int oldBlueValue = (int)numericUpDownColorBlue.Value;
+        numericUpDownColorBlue.Value = trackBarColorBlue.Value;
+        if (isColorGBBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorBlue.Value - oldBlueValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorBlue.Value - oldBlueValue);
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value;
+            }
+        }
+        if (isColorRBBind)
+        {
+            int n = trackBarColorRed.Value + (trackBarColorBlue.Value - oldBlueValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorRed.Value = trackBarColorRed.Value + (trackBarColorBlue.Value - oldBlueValue);
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value;
+            }
+        }
+        if (isColorRGBBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorBlue.Value - oldBlueValue);
+            int n2 = trackBarColorRed.Value + (trackBarColorBlue.Value - oldBlueValue);
+            if (n > 0 && n < 255 && n2 > 0 && n2 < 255)
+            {
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorBlue.Value - oldBlueValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value + (trackBarColorBlue.Value - oldBlueValue);
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value;
+            }
+        }
+        ChangePicBoxColor();
+    }
+
+    private void trackBarColorAlpha_Scroll(object sender, EventArgs e)
+    {
+        int oldAlphaValue = (int)numericUpDownColorAlpha.Value;
+        numericUpDownColorAlpha.Value = trackBarColorAlpha.Value;
+        ChangePicBoxColor();
     }
 
     private void buttonInformation_Click(object sender, EventArgs e)
     {
-      AboutBoxForm formAboutBox = new AboutBoxForm();
-      formAboutBox.ShowDialog();
-    }
-
-    private void buttonEnd_Click(object sender, EventArgs e)
-    {
-      Close();
+        AboutBoxForm formAboutBox = new AboutBoxForm();
+        formAboutBox.ShowDialog();
     }
 
     private void ColorSelectorForm_Load(object sender, EventArgs e)
     {
-      ChangePicBoxColor();
+        Random rnd = new Random();
+        numericUpDownColorRed.Value = rnd.Next(0, 255); ;
+        numericUpDownColorGreen.Value = rnd.Next(0, 255); ;
+        numericUpDownColorBlue.Value = rnd.Next(0, 255); ;
+        numericUpDownColorAlpha.Value = rnd.Next(0, 255); ;
+        ChangePicBoxColor();
     }
 
     private void buttonHexColorCodeCopyToClipboard_Click(object sender, EventArgs e)
     {
-      textBoxHexColorCode.SelectAll();
-      textBoxHexColorCode.Copy();
+        pictureBoxHexColorCodeCopyToClipboard.Visible = true;
+        textBoxHexColorCode.SelectAll();
+        textBoxHexColorCode.Copy();
+        timer.Start();
     }
 
     private void buttonHtmlColorCodeCopyToClipboard_Click(object sender, EventArgs e)
     {
-      textBoxHtmlColorCode.SelectAll();
-      textBoxHtmlColorCode.Copy();
+        pictureBoxHtmlColorCodeCopyToClipboard.Visible = true;
+        textBoxHtmlColorCode.SelectAll();
+        textBoxHtmlColorCode.Copy();
     }
 
     private void buttonRgbColorCodeCopyToClipboard_Click(object sender, EventArgs e)
     {
-      textBoxRgbColorCode.SelectAll();
-      textBoxRgbColorCode.Copy();
+        pictureBoxRgbColorCodeCopyToClipboard.Visible = true;
+        textBoxRgbColorCode.SelectAll();
+        textBoxRgbColorCode.Copy();
     }
 
     private void buttonMathColorCode_Click(object sender, EventArgs e)
     {
-      textBoxMathColorCode.SelectAll();
-      textBoxMathColorCode.Copy();
+        pictureBoxMathColorCodeCopyToClipboard.Visible = true;
+        textBoxMathColorCode.SelectAll();
+        textBoxMathColorCode.Copy();
     }
 
     private void numericUpDownColorRed_ValueChanged(object sender, EventArgs e)
     {
-      trackBarColorRed.Value = (int)numericUpDownColorRed.Value;
-      ChangePicBoxColor();
+        int oldRedValue = trackBarColorRed.Value;
+        trackBarColorRed.Value = (int)numericUpDownColorRed.Value;
+        if (isColorRGBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+        if (isColorRBBind)
+        {
+            int n = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+        if (isColorRGBBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+            int n2 = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+            if (n > 0 && n < 255 && n2 > 0 && n2 < 255)
+            {
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorBlue.Value = trackBarColorBlue.Value + (trackBarColorRed.Value - oldRedValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+        ChangePicBoxColor();
     }
 
     private void numericUpDownColorGreen_ValueChanged(object sender, EventArgs e)
     {
-      trackBarColorGreen.Value = (int)numericUpDownColorGreen.Value;
-      ChangePicBoxColor();
+        int oldGreenValue = trackBarColorGreen.Value;
+        trackBarColorGreen.Value = (int)numericUpDownColorGreen.Value;
+        if (isColorRGBind)
+        {
+            int n = trackBarColorGreen.Value + (trackBarColorRed.Value - oldGreenValue);
+            if (n > 0 && n < 255)
+            {
+                numericUpDownColorGreen.Value = trackBarColorGreen.Value + (trackBarColorRed.Value - oldGreenValue);
+                numericUpDownColorRed.Value = trackBarColorRed.Value;
+            }
+        }
+
+        ChangePicBoxColor();
     }
 
     private void numericUpDownColorBlue_ValueChanged(object sender, EventArgs e)
     {
-      trackBarColorBlue.Value = (int)numericUpDownColorBlue.Value;
-      ChangePicBoxColor();
+        int oldBlueValue = trackBarColorBlue.Value;
+        trackBarColorBlue.Value = (int)numericUpDownColorBlue.Value;
+
+        ChangePicBoxColor();
+    }
+
+    private void numericUpDownColorAlpha_ValueChanged(object sender, EventArgs e)
+    {
+        int oldAlphaValue = trackBarColorAlpha.Value;
+        trackBarColorAlpha.Value = (int)numericUpDownColorAlpha.Value;
+
+        ChangePicBoxColor();
     }
 
     private void buttonInvertColor_Click(object sender, EventArgs e)
     {
-      contextMenuStripInvertColor.Show(buttonInvertColor, 0, buttonInvertColor.Size.Height);
+        contextMenuStripInvertColor.Show(buttonInvertColor, 0, buttonInvertColor.Size.Height);
     }
 
     private void buttonSwapColor_Click(object sender, EventArgs e)
     {
-      contextMenuStripSwapColor.Show(buttonSwapColor, 0, buttonSwapColor.Size.Height);
+        contextMenuStripSwapColor.Show(buttonSwapColor, 0, buttonSwapColor.Size.Height);
     }
 
     private void ToolStripMenuItemSwapRG_Click(object sender, EventArgs e)
     {
-      int swap;
+        int swap;
 
-      swap = trackBarColorRed.Value;
-      trackBarColorRed.Value = trackBarColorGreen.Value;
-      trackBarColorGreen.Value = swap;
-
-      swap = (int)numericUpDownColorRed.Value;
-      numericUpDownColorRed.Value = numericUpDownColorGreen.Value;
-      numericUpDownColorGreen.Value = swap;
+        swap = (int)numericUpDownColorRed.Value;
+        numericUpDownColorRed.Value = numericUpDownColorGreen.Value;
+        numericUpDownColorGreen.Value = swap;
     }
 
     private void ToolStripMenuItemSwapRB_Click(object sender, EventArgs e)
     {
-      int swap;
+        int swap;
 
-      swap = trackBarColorRed.Value;
-      trackBarColorRed.Value = trackBarColorBlue.Value;
-      trackBarColorBlue.Value = swap;
-
-      swap = (int)numericUpDownColorRed.Value;
-      numericUpDownColorRed.Value = numericUpDownColorBlue.Value;
-      numericUpDownColorBlue.Value = swap;
+        swap = (int)numericUpDownColorRed.Value;
+        numericUpDownColorRed.Value = numericUpDownColorBlue.Value;
+        numericUpDownColorBlue.Value = swap;
     }
 
     private void ToolStripMenuItemSwapGB_Click(object sender, EventArgs e)
     {
-      int swap;
+        int swap;
 
-      swap = trackBarColorGreen.Value;
-      trackBarColorGreen.Value = trackBarColorBlue.Value;
-      trackBarColorBlue.Value = swap;
-
-      swap = (int)numericUpDownColorGreen.Value;
-      numericUpDownColorGreen.Value = numericUpDownColorBlue.Value;
-      numericUpDownColorBlue.Value = swap;
+        swap = (int)numericUpDownColorGreen.Value;
+        numericUpDownColorGreen.Value = numericUpDownColorBlue.Value;
+        numericUpDownColorBlue.Value = swap;
     }
 
     private void ToolStripMenuItemInvertColorRGB_Click(object sender, EventArgs e)
     {
-      ToolStripMenuItemInvertColorR_Click(sender, e);
-      ToolStripMenuItemInvertColorG_Click(sender, e);
-      ToolStripMenuItemInvertColorB_Click(sender, e);
+        ToolStripMenuItemInvertColorR_Click(sender, e);
+        ToolStripMenuItemInvertColorG_Click(sender, e);
+        ToolStripMenuItemInvertColorB_Click(sender, e);
     }
 
     private void ToolStripMenuItemInvertColorRG_Click(object sender, EventArgs e)
     {
-      ToolStripMenuItemInvertColorR_Click(sender, e);
-      ToolStripMenuItemInvertColorG_Click(sender, e);
+        ToolStripMenuItemInvertColorR_Click(sender, e);
+        ToolStripMenuItemInvertColorG_Click(sender, e);
     }
 
     private void ToolStripMenuItemInvertColorRB_Click(object sender, EventArgs e)
     {
-      ToolStripMenuItemInvertColorR_Click(sender, e);
-      ToolStripMenuItemInvertColorB_Click(sender, e);
+        ToolStripMenuItemInvertColorR_Click(sender, e);
+        ToolStripMenuItemInvertColorB_Click(sender, e);
     }
 
     private void ToolStripMenuItemInvertColorGB_Click(object sender, EventArgs e)
     {
-      ToolStripMenuItemInvertColorG_Click(sender, e);
-      ToolStripMenuItemInvertColorB_Click(sender, e);
+        ToolStripMenuItemInvertColorG_Click(sender, e);
+        ToolStripMenuItemInvertColorB_Click(sender, e);
     }
 
     private void ToolStripMenuItemInvertColorR_Click(object sender, EventArgs e)
     {
-      byte color = (byte)trackBarColorRed.Value;
-      color += 128;
-      trackBarColorRed.Value = color;
-      numericUpDownColorRed.Value = color;
+        byte color = (byte)trackBarColorRed.Value;
+        color += 128;
+        numericUpDownColorRed.Value = color;
     }
 
     private void ToolStripMenuItemInvertColorG_Click(object sender, EventArgs e)
     {
-      byte color = (byte)trackBarColorGreen.Value;
-      color += 128;
-      trackBarColorGreen.Value = color;
-      numericUpDownColorGreen.Value = color;
+        byte color = (byte)trackBarColorGreen.Value;
+        color += 128;
+        numericUpDownColorGreen.Value = color;
     }
 
     private void ToolStripMenuItemInvertColorB_Click(object sender, EventArgs e)
     {
-      byte color = (byte)trackBarColorBlue.Value;
-      color += 128;
-      trackBarColorBlue.Value = color;
-      numericUpDownColorBlue.Value = color;
+        byte color = (byte)trackBarColorBlue.Value;
+        color += 128;
+        numericUpDownColorBlue.Value = color;
     }
+
+    private void checkBoxWebsafeColor_CheckedChanged(object sender, EventArgs e)
+    {
+        WebsafeColorForm formWebsafeColor = new WebsafeColorForm();
+        if (checkBoxWebsafeColor.Checked)
+        {
+            formWebsafeColor.Show();
+        }
+        else formWebsafeColor.Close();
+    }
+
+    private void buttonRandomColorRed_Click(object sender, EventArgs e)
+    {
+        Random rnd = new Random();
+        int i = rnd.Next(0, 255);
+        numericUpDownColorRed.Value = i;
+        if (isColorRGBind) { i = rnd.Next(0, 255); numericUpDownColorGreen.Value = i; };
+        if (isColorRBBind) { i = rnd.Next(0, 255); numericUpDownColorBlue.Value = i; };
+        if (isColorRGBBind) { i = rnd.Next(0, 255); numericUpDownColorGreen.Value = i; i = rnd.Next(0, 255); numericUpDownColorBlue.Value = i; };
+    }
+
+    private void buttonRandomColorGreen_Click(object sender, EventArgs e)
+    {
+        Random rnd = new Random();
+        int i = rnd.Next(0, 255);
+        numericUpDownColorGreen.Value = i;
+        if (isColorRGBind) { i = rnd.Next(0, 255); numericUpDownColorRed.Value = i; };
+        if (isColorGBBind) { i = rnd.Next(0, 255); numericUpDownColorBlue.Value = i; };
+        if (isColorRGBBind) { i = rnd.Next(0, 255); numericUpDownColorRed.Value = i; i = rnd.Next(0, 255); numericUpDownColorBlue.Value = i; };
+    }
+
+    private void buttonRandomColorBlue_Click(object sender, EventArgs e)
+    {
+        Random rnd = new Random();
+        int i = rnd.Next(0, 255);
+        numericUpDownColorBlue.Value = i;
+        if (isColorRBBind) { i = rnd.Next(0, 255); numericUpDownColorRed.Value = i; };
+        if (isColorGBBind) { i = rnd.Next(0, 255); numericUpDownColorGreen.Value = i; };
+        if (isColorRGBBind) { i = rnd.Next(0, 255); numericUpDownColorRed.Value = i; i = rnd.Next(0, 255); numericUpDownColorGreen.Value = i; };
+    }
+
+    private void buttonRandomColorAlpha_Click(object sender, EventArgs e)
+    {
+        Random rnd = new Random();
+        int i = rnd.Next(0, 255);
+        numericUpDownColorAlpha.Value = i;
+    }
+
+    private void checkBindLinks()
+    {
+        if (isColorNoneBind) { pictureBoxBindColorR.Visible = false; pictureBoxBindColorG.Visible = false; pictureBoxBindColorB.Visible = false; };
+        if (isColorRGBind)   { pictureBoxBindColorR.Visible = true; pictureBoxBindColorG.Visible = true; pictureBoxBindColorB.Visible = false; };
+        if (isColorRBBind)   { pictureBoxBindColorR.Visible = true; pictureBoxBindColorG.Visible = false; pictureBoxBindColorB.Visible = true; };
+        if (isColorGBBind)   { pictureBoxBindColorR.Visible = false; pictureBoxBindColorG.Visible = true; pictureBoxBindColorB.Visible = true; };
+        if (isColorRGBBind)  { pictureBoxBindColorR.Visible = true; pictureBoxBindColorG.Visible = true; pictureBoxBindColorB.Visible = true; };
+    }
+
+    private void buttonBindColor_Click(object sender, EventArgs e)
+    {
+        contextMenuStripBindColor.Show(buttonBindColor, 0, buttonBindColor.Size.Height);
+    }
+
+    private void toolStripMenuItemBindColorNone_Click(object sender, EventArgs e)
+    {
+        isColorNoneBind = true;
+        isColorRGBind = false;
+        isColorRBBind = false;
+        isColorGBBind = false;
+        isColorRGBBind = false;
+        checkBindLinks();
+    }
+
+    private void toolStripMenuItemBindColorRG_Click(object sender, EventArgs e)
+    {
+        isColorNoneBind = false;
+        isColorRGBind = true;
+        isColorRBBind = false;
+        isColorGBBind = false;
+        isColorRGBBind = false;
+        checkBindLinks();
+    }
+
+    private void toolStripMenuItemBindColorRB_Click(object sender, EventArgs e)
+    {
+        isColorNoneBind = false;
+        isColorRGBind = false;
+        isColorRBBind = true;
+        isColorGBBind = false;
+        isColorRGBBind = false;
+        checkBindLinks();
+    }
+
+    private void toolStripMenuItemGB_Click(object sender, EventArgs e)
+    {
+        isColorNoneBind = false;
+        isColorRGBind = false;
+        isColorRBBind = false;
+        isColorGBBind = true;
+        isColorRGBBind = false;
+        checkBindLinks();
+    }
+
+    private void toolStripMenuItemBindColorRGB_Click(object sender, EventArgs e)
+    {
+        isColorNoneBind = false;
+        isColorRGBind = false;
+        isColorRBBind = false;
+        isColorGBBind = false;
+        isColorRGBBind = true;
+        checkBindLinks();
+    }
+
+    private void timer_Tick(object sender, EventArgs e)
+    {
+        pictureBoxHexColorCodeCopyToClipboard.Visible = false;
+        pictureBoxHtmlColorCodeCopyToClipboard.Visible = false;
+        pictureBoxRgbColorCodeCopyToClipboard.Visible = false;
+        pictureBoxMathColorCodeCopyToClipboard.Visible = false;
+    }
+
+    private void buttonExit_Click(object sender, EventArgs e)
+    {
+        this.Close();
+    }
+
   }
 }
