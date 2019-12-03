@@ -1,110 +1,41 @@
-﻿using System;
-using System.Reflection;
+﻿using MijoSoftware.AssemblyInformation;
+using System;
 using System.Windows.Forms;
 
 namespace ColorSelector
 {
+	/// <summary>
+	/// AboutBoxForm
+	/// </summary>
 	internal partial class AboutBoxForm : Form
 	{
-		public AboutBoxForm()
-		{
-			InitializeComponent();
-			Text = string.Format("Info über {0}", AssemblyTitle);
-			labelProductName.Text = AssemblyProduct;
-			labelVersion.Text = string.Format("Version {0}", AssemblyVersion);
-			labelCopyright.Text = AssemblyCopyright;
-			labelCompanyName.Text = AssemblyCompany;
-			textBoxDescription.Text = AssemblyDescription;
-		}
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		public AboutBoxForm() => InitializeComponent();
 
-		#region Assemblyattributaccessoren
+		/// <summary>
+		/// Close the form
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
+		private void OkButton_Click(object sender, EventArgs e) => Close();
 
-		public string AssemblyTitle
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-				if (attributes.Length > 0)
-				{
-					AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-					if (titleAttribute.Title != "")
-					{
-						return titleAttribute.Title;
-					}
-				}
-				return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
-			}
-		}
-
-		public string AssemblyVersion
-		{
-			get
-			{
-				return Assembly.GetExecutingAssembly().GetName().Version.ToString();
-			}
-		}
-
-		public string AssemblyDescription
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyDescriptionAttribute)attributes[0]).Description;
-			}
-		}
-
-		public string AssemblyProduct
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyProductAttribute)attributes[0]).Product;
-			}
-		}
-
-		public string AssemblyCopyright
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
-			}
-		}
-
-		public string AssemblyCompany
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyCompanyAttribute)attributes[0]).Company;
-			}
-		}
-		#endregion
-
-		private void okButton_Click(object sender, EventArgs e)
-		{
-			Close();
-		}
-
+		/// <summary>
+		/// Load the form
+		/// </summary>
+		/// <param name="sender">object sender</param>
+		/// <param name="e">event arguments</param>
+		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void AboutBoxForm_Load(object sender, EventArgs e)
 		{
-
+			Text = $"Info über {AssemblyInfo.AssemblyTitle}";
+			labelProductName.Text = AssemblyInfo.AssemblyProduct;
+			labelVersion.Text = $"Version {AssemblyInfo.AssemblyVersion}";
+			labelCopyright.Text = AssemblyInfo.AssemblyCopyright;
+			labelCompanyName.Text = AssemblyInfo.AssemblyCompany;
+			textBoxDescription.Text = AssemblyInfo.AssemblyDescription;
 		}
 	}
 }

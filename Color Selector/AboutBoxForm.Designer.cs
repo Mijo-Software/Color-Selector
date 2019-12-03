@@ -158,7 +158,7 @@
 			this.okButton.Text = "&OK";
 			this.okButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTipAboutBox.SetToolTip(this.okButton, "OK");
-			this.okButton.Click += new System.EventHandler(this.okButton_Click);
+			this.okButton.Click += new System.EventHandler(this.OkButton_Click);
 			// 
 			// AboutBoxForm
 			// 

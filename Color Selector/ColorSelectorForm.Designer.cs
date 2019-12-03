@@ -176,7 +176,7 @@
 			this.trackBarCanalRed.TickFrequency = 0;
 			this.trackBarCanalRed.TickStyle = System.Windows.Forms.TickStyle.Both;
 			this.toolTipAppForm.SetToolTip(this.trackBarCanalRed, "Bestimmt den Rot-Anteil der Farbe");
-			this.trackBarCanalRed.Scroll += new System.EventHandler(this.trackBarCanalRed_Scroll);
+			this.trackBarCanalRed.Scroll += new System.EventHandler(this.TrackBarCanalRed_Scroll);
 			// 
 			// trackBarCanalGreen
 			// 
@@ -189,7 +189,7 @@
 			this.trackBarCanalGreen.TickFrequency = 0;
 			this.trackBarCanalGreen.TickStyle = System.Windows.Forms.TickStyle.Both;
 			this.toolTipAppForm.SetToolTip(this.trackBarCanalGreen, "Bestimmt den Grün-Anteil der Farbe");
-			this.trackBarCanalGreen.Scroll += new System.EventHandler(this.trackBarCanalGreen_Scroll);
+			this.trackBarCanalGreen.Scroll += new System.EventHandler(this.TrackBarCanalGreen_Scroll);
 			// 
 			// labelGreen
 			// 
@@ -212,7 +212,7 @@
 			this.trackBarCanalBlue.TickFrequency = 0;
 			this.trackBarCanalBlue.TickStyle = System.Windows.Forms.TickStyle.Both;
 			this.toolTipAppForm.SetToolTip(this.trackBarCanalBlue, "Bestimmt den Blau-Anteil der Farbe");
-			this.trackBarCanalBlue.Scroll += new System.EventHandler(this.trackBarCanalBlue_Scroll);
+			this.trackBarCanalBlue.Scroll += new System.EventHandler(this.TrackBarCanalBlue_Scroll);
 			// 
 			// labelBlue
 			// 
@@ -293,7 +293,7 @@
 			this.numericUpDownCanalRed.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDownCanalRed.TabIndex = 2;
 			this.toolTipAppForm.SetToolTip(this.numericUpDownCanalRed, "Bestimmt den Rot-Anteil der Farbe");
-			this.numericUpDownCanalRed.ValueChanged += new System.EventHandler(this.numericUpDownCanalRed_ValueChanged);
+			this.numericUpDownCanalRed.ValueChanged += new System.EventHandler(this.NumericUpDownCanalRed_ValueChanged);
 			// 
 			// numericUpDownCanalGreen
 			// 
@@ -307,7 +307,7 @@
 			this.numericUpDownCanalGreen.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDownCanalGreen.TabIndex = 8;
 			this.toolTipAppForm.SetToolTip(this.numericUpDownCanalGreen, "Bestimmt den Grün-Anteil der Farbe");
-			this.numericUpDownCanalGreen.ValueChanged += new System.EventHandler(this.numericUpDownCanalGreen_ValueChanged);
+			this.numericUpDownCanalGreen.ValueChanged += new System.EventHandler(this.NumericUpDownCanalGreen_ValueChanged);
 			// 
 			// numericUpDownCanalBlue
 			// 
@@ -321,7 +321,7 @@
 			this.numericUpDownCanalBlue.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDownCanalBlue.TabIndex = 14;
 			this.toolTipAppForm.SetToolTip(this.numericUpDownCanalBlue, "Bestimmt den Blau-Anteil der Farbe");
-			this.numericUpDownCanalBlue.ValueChanged += new System.EventHandler(this.numericUpDownCanalBlue_ValueChanged);
+			this.numericUpDownCanalBlue.ValueChanged += new System.EventHandler(this.NumericUpDownCanalBlue_ValueChanged);
 			// 
 			// toolTipAppForm
 			// 
@@ -533,7 +533,7 @@
 			this.numericUpDownCanalAlpha.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDownCanalAlpha.TabIndex = 20;
 			this.toolTipAppForm.SetToolTip(this.numericUpDownCanalAlpha, "Bestimmt den Alpha-Anteil der Farbe");
-			this.numericUpDownCanalAlpha.ValueChanged += new System.EventHandler(this.numericUpDownCanalAlpha_ValueChanged);
+			this.numericUpDownCanalAlpha.ValueChanged += new System.EventHandler(this.NumericUpDownCanalAlpha_ValueChanged);
 			// 
 			// trackBarCanalAlpha
 			// 
@@ -546,7 +546,7 @@
 			this.trackBarCanalAlpha.TickFrequency = 0;
 			this.trackBarCanalAlpha.TickStyle = System.Windows.Forms.TickStyle.Both;
 			this.toolTipAppForm.SetToolTip(this.trackBarCanalAlpha, "Bestimmt den Alpha-Anteil der Farbe");
-			this.trackBarCanalAlpha.Scroll += new System.EventHandler(this.trackBarCanalAlpha_Scroll);
+			this.trackBarCanalAlpha.Scroll += new System.EventHandler(this.TrackBarCanalAlpha_Scroll);
 			// 
 			// contextMenuStripRandomizeCanal
 			// 
@@ -658,7 +658,7 @@
 			// 
 			this.checkBoxWebsafeColor.Appearance = System.Windows.Forms.Appearance.Button;
 			this.checkBoxWebsafeColor.AutoSize = true;
-			this.checkBoxWebsafeColor.Location = new System.Drawing.Point(408, 193);
+			this.checkBoxWebsafeColor.Location = new System.Drawing.Point(199, 171);
 			this.checkBoxWebsafeColor.Name = "checkBoxWebsafeColor";
 			this.checkBoxWebsafeColor.Size = new System.Drawing.Size(87, 23);
 			this.checkBoxWebsafeColor.TabIndex = 43;
@@ -666,7 +666,7 @@
 			this.toolTipAppForm.SetToolTip(this.checkBoxWebsafeColor, "Zeigt die webkonformen Farben an");
 			this.checkBoxWebsafeColor.UseVisualStyleBackColor = true;
 			this.checkBoxWebsafeColor.Visible = false;
-			this.checkBoxWebsafeColor.CheckedChanged += new System.EventHandler(this.checkBoxWebsafeColor_CheckedChanged);
+			this.checkBoxWebsafeColor.CheckedChanged += new System.EventHandler(this.CheckBoxWebsafeColor_CheckedChanged);
 			// 
 			// labelAlpha
 			// 
@@ -898,7 +898,7 @@
 			this.buttonRandomizeCanalGreen.TabIndex = 9;
 			this.toolTipAppForm.SetToolTip(this.buttonRandomizeCanalGreen, "Wählt den Grün-Anteil per Zufall");
 			this.buttonRandomizeCanalGreen.UseVisualStyleBackColor = true;
-			this.buttonRandomizeCanalGreen.Click += new System.EventHandler(this.buttonRandomizeCanalGreen_Click);
+			this.buttonRandomizeCanalGreen.Click += new System.EventHandler(this.ButtonRandomizeCanalGreen_Click);
 			// 
 			// buttonRandomizeCanalRed
 			// 
@@ -909,7 +909,7 @@
 			this.buttonRandomizeCanalRed.TabIndex = 3;
 			this.toolTipAppForm.SetToolTip(this.buttonRandomizeCanalRed, "Wählt den Rot-Anteil per Zufall");
 			this.buttonRandomizeCanalRed.UseVisualStyleBackColor = true;
-			this.buttonRandomizeCanalRed.Click += new System.EventHandler(this.buttonRandomizeCanalRed_Click);
+			this.buttonRandomizeCanalRed.Click += new System.EventHandler(this.ButtonRandomizeCanalRed_Click);
 			// 
 			// pictureBoxBindCanalR
 			// 
@@ -931,7 +931,7 @@
 			this.buttonMathColorCode.TabIndex = 36;
 			this.toolTipAppForm.SetToolTip(this.buttonMathColorCode, "Kopiert den mathematischen Farbcode in die Zwischenablage");
 			this.buttonMathColorCode.UseVisualStyleBackColor = true;
-			this.buttonMathColorCode.Click += new System.EventHandler(this.buttonMathColorCode_Click);
+			this.buttonMathColorCode.Click += new System.EventHandler(this.ButtonMathColorCode_Click);
 			// 
 			// buttonHtmlColorCodeCopyToClipboard
 			// 
@@ -942,7 +942,7 @@
 			this.buttonHtmlColorCodeCopyToClipboard.TabIndex = 30;
 			this.toolTipAppForm.SetToolTip(this.buttonHtmlColorCodeCopyToClipboard, "Kopiert den HTML-Farbcode in die Zwischenablage");
 			this.buttonHtmlColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
-			this.buttonHtmlColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonHtmlColorCodeCopyToClipboard_Click);
+			this.buttonHtmlColorCodeCopyToClipboard.Click += new System.EventHandler(this.ButtonHtmlColorCodeCopyToClipboard_Click);
 			// 
 			// buttonHexColorCodeCopyToClipboard
 			// 
@@ -953,7 +953,7 @@
 			this.buttonHexColorCodeCopyToClipboard.TabIndex = 27;
 			this.toolTipAppForm.SetToolTip(this.buttonHexColorCodeCopyToClipboard, "Kopiert den HEX-Farbcode in die Zwischenablage");
 			this.buttonHexColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
-			this.buttonHexColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonHexColorCodeCopyToClipboard_Click);
+			this.buttonHexColorCodeCopyToClipboard.Click += new System.EventHandler(this.ButtonHexColorCodeCopyToClipboard_Click);
 			// 
 			// buttonRgbColorCodeCopyToClipboard
 			// 
@@ -964,7 +964,7 @@
 			this.buttonRgbColorCodeCopyToClipboard.TabIndex = 33;
 			this.toolTipAppForm.SetToolTip(this.buttonRgbColorCodeCopyToClipboard, "Kopiert den RGB-Farbcode in die Zwischenablage");
 			this.buttonRgbColorCodeCopyToClipboard.UseVisualStyleBackColor = true;
-			this.buttonRgbColorCodeCopyToClipboard.Click += new System.EventHandler(this.buttonRgbColorCodeCopyToClipboard_Click);
+			this.buttonRgbColorCodeCopyToClipboard.Click += new System.EventHandler(this.ButtonRgbColorCodeCopyToClipboard_Click);
 			// 
 			// pictureBoxColorRGB
 			// 
@@ -991,7 +991,7 @@
 			this.buttonInvertCanal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTipAppForm.SetToolTip(this.buttonInvertCanal, "Invertiert die Farbkanäle");
 			this.buttonInvertCanal.UseVisualStyleBackColor = true;
-			this.buttonInvertCanal.Click += new System.EventHandler(this.buttonInvertCanal_Click);
+			this.buttonInvertCanal.Click += new System.EventHandler(this.ButtonInvertCanal_Click);
 			// 
 			// buttonSwapCanal
 			// 
@@ -1006,7 +1006,7 @@
 			this.buttonSwapCanal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTipAppForm.SetToolTip(this.buttonSwapCanal, "Vertauscht die Farbkanäle");
 			this.buttonSwapCanal.UseVisualStyleBackColor = true;
-			this.buttonSwapCanal.Click += new System.EventHandler(this.buttonSwapCanal_Click);
+			this.buttonSwapCanal.Click += new System.EventHandler(this.ButtonSwapCanal_Click);
 			// 
 			// buttonInformation
 			// 
@@ -1020,7 +1020,7 @@
 			this.buttonInformation.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTipAppForm.SetToolTip(this.buttonInformation, "Zeigt Informationen über das Programm an");
 			this.buttonInformation.UseVisualStyleBackColor = true;
-			this.buttonInformation.Click += new System.EventHandler(this.buttonInformation_Click);
+			this.buttonInformation.Click += new System.EventHandler(this.ButtonInformation_Click);
 			// 
 			// buttonMirrorCanal
 			// 
