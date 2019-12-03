@@ -8,73 +8,64 @@ namespace ColorSelector
 	public partial class ColorSelectorForm : Form
 	{
 		private bool isCanalNoneBind = true;
-		private bool isCanalRGBind = false;
-		private bool isCanalRBBind = false;
-		private bool isCanalGBBind = false;
-		private bool isCanalRGBBind = false;
+		private bool isCanalRGBind;
+		private bool isCanalRBBind;
+		private bool isCanalGBBind;
+		private bool isCanalRGBBind;
 
 		//Graphics g;
-		private Random rnd = new Random();
-
+		private readonly Random rnd = new Random();
 
 		public ColorSelectorForm()
 		{
 			InitializeComponent();
-			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+			SetStyle(flag: ControlStyles.SupportsTransparentBackColor, value: true);
 		}
 
 		private void ColorSelectorForm_Load(object sender, EventArgs e)
 		{
 			//pictureBoxColorRGB.Image = new Bitmap("C:\\Users\\micha_000\\Documents\\Visual Studio 2015\\Projects\\Color Selector\\Color Selector\\Resources\\information.png");
-			numericUpDownCanalRed.Value = rnd.Next(0, 255);
-			numericUpDownCanalGreen.Value = rnd.Next(0, 255);
-			numericUpDownCanalBlue.Value = rnd.Next(0, 255);
-			numericUpDownCanalAlpha.Value = rnd.Next(0, 255);
+			numericUpDownCanalRed.Value = rnd.Next(minValue: 0, maxValue: 255);
+			numericUpDownCanalGreen.Value = rnd.Next(minValue: 0, maxValue: 255);
+			numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255);
+			numericUpDownCanalAlpha.Value = rnd.Next(minValue: 0, maxValue: 255);
 			checkBoxEnableAlpha.Checked = true;
 			ChangePicBoxColor();
 		}
 
 		private void ChangePicBoxColor()
 		{
-			string strColorRedHex = string.Format("{0:X}", trackBarCanalRed.Value);
+			string strColorRedHex = $"{trackBarCanalRed.Value:X}";
 			if (trackBarCanalRed.Value < 10)
 			{
 				strColorRedHex = "0" + strColorRedHex;
 			}
-
-			string strColorGreenHex = string.Format("{0:X}", trackBarCanalGreen.Value);
+			string strColorGreenHex = $"{trackBarCanalGreen.Value:X}";
 			if (trackBarCanalGreen.Value < 10)
 			{
 				strColorGreenHex = "0" + strColorGreenHex;
 			}
-
-			string strColorBlueHex = string.Format("{0:X}", trackBarCanalBlue.Value);
+			string strColorBlueHex = $"{trackBarCanalBlue.Value:X}";
 			if (trackBarCanalBlue.Value < 10)
 			{
-				strColorBlueHex = "0" + strColorBlueHex;
+				strColorBlueHex = $"0{strColorBlueHex}";
 			}
-
-			string strColorAlphaHex = string.Format("{0:X}", trackBarCanalAlpha.Value);
+			string strColorAlphaHex = $"{trackBarCanalAlpha.Value:X}";
+			if (checkBoxEnableAlpha.Checked && trackBarCanalAlpha.Value < 10)
+			{
+				strColorAlphaHex = $"0{strColorAlphaHex}";
+			}
+			string strColorRedMath = string.Format(provider: NumberFormatInfo.InvariantInfo, format: "{0:0.00}", args: 1.0 * trackBarCanalRed.Value / 255);
+			string strColorGreenMath = string.Format(provider: NumberFormatInfo.InvariantInfo, format: "{0:0.00}", args: 1.0 * trackBarCanalGreen.Value / 255);
+			string strColorBlueMath = string.Format(provider: NumberFormatInfo.InvariantInfo, format: "{0:0.00}", args: 1.0 * trackBarCanalBlue.Value / 255);
+			string strColorAlphaMath = string.Format(provider: NumberFormatInfo.InvariantInfo, format: "{0:0.00}", args: 1.0 * trackBarCanalAlpha.Value / 255);
 			if (checkBoxEnableAlpha.Checked)
 			{
-				if (trackBarCanalAlpha.Value < 10)
-				{
-					strColorAlphaHex = "0" + strColorAlphaHex;
-				}
-			}
-
-			string strColorRedMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarCanalRed.Value / 255);
-			string strColorGreenMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarCanalGreen.Value / 255);
-			string strColorBlueMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarCanalBlue.Value / 255);
-			string strColorAlphaMath = string.Format(NumberFormatInfo.InvariantInfo, "{0:0.00}", 1.0 * trackBarCanalAlpha.Value / 255);
-
-			if (checkBoxEnableAlpha.Checked)
-			{
-				pictureBoxColorRGB.BackColor = Color.FromArgb(trackBarCanalAlpha.Value, trackBarCanalRed.Value, trackBarCanalGreen.Value, trackBarCanalBlue.Value);
+				pictureBoxColorRGB.BackColor = Color.FromArgb(alpha: trackBarCanalAlpha.Value, red: trackBarCanalRed.Value, green: trackBarCanalGreen.Value, blue: trackBarCanalBlue.Value);
 			}
 			else
 			{
-				pictureBoxColorRGB.BackColor = Color.FromArgb(255, trackBarCanalRed.Value, trackBarCanalGreen.Value, trackBarCanalBlue.Value);
+				pictureBoxColorRGB.BackColor = Color.FromArgb(alpha: 255, red: trackBarCanalRed.Value, green: trackBarCanalGreen.Value, blue: trackBarCanalBlue.Value);
 			}
 			//ColorSelectorForm_Paint(this, null);
 			/*g = CreateGraphics();
@@ -89,23 +80,23 @@ namespace ColorSelector
 
 			if (checkBoxEnableAlpha.Checked)
 			{
-				textBoxHexColorCode.Text = "$" + strColorAlphaHex + strColorBlueHex + strColorGreenHex + strColorRedHex;
-				textBoxHtmlColorCode.Text = "#" + strColorRedHex + strColorGreenHex + strColorBlueHex + strColorAlphaHex;
-				textBoxRgbColorCode.Text = "(" + trackBarCanalRed.Value + ", " + trackBarCanalGreen.Value + ", " + trackBarCanalBlue.Value + ", " + trackBarCanalAlpha.Value + ")";
-				textBoxMathColorCode.Text = strColorRedMath + ", " + strColorGreenMath + ", " + strColorBlueMath + ", " + strColorAlphaMath;
+				textBoxHexColorCode.Text = $"${strColorAlphaHex}{strColorBlueHex}{strColorGreenHex}{strColorRedHex}";
+				textBoxHtmlColorCode.Text = $"#{strColorRedHex}{strColorGreenHex}{strColorBlueHex}{strColorAlphaHex}";
+				textBoxRgbColorCode.Text = $"({trackBarCanalRed.Value}, {trackBarCanalGreen.Value}, {trackBarCanalBlue.Value}, {trackBarCanalAlpha.Value})";
+				textBoxMathColorCode.Text = $"{strColorRedMath}, {strColorGreenMath}, {strColorBlueMath}, {strColorAlphaMath}";
 			}
 			else
 			{
-				textBoxHexColorCode.Text = "$" + strColorBlueHex + strColorGreenHex + strColorRedHex;
-				textBoxHtmlColorCode.Text = "#" + strColorRedHex + strColorGreenHex + strColorBlueHex;
-				textBoxRgbColorCode.Text = "(" + trackBarCanalRed.Value + ", " + trackBarCanalGreen.Value + ", " + trackBarCanalBlue.Value + ")";
-				textBoxMathColorCode.Text = strColorRedMath + ", " + strColorGreenMath + ", " + strColorBlueMath;
+				textBoxHexColorCode.Text = $"${strColorBlueHex}{strColorGreenHex}{strColorRedHex}";
+				textBoxHtmlColorCode.Text = $"#{strColorRedHex}{strColorGreenHex}{strColorBlueHex}";
+				textBoxRgbColorCode.Text = $"({trackBarCanalRed.Value}, {trackBarCanalGreen.Value}, {trackBarCanalBlue.Value})";
+				textBoxMathColorCode.Text = $"{strColorRedMath}, {strColorGreenMath}, {strColorBlueMath}";
 			}
 		}
 
-		private void trackBarCanalRed_Scroll(object sender, EventArgs e)
+		private void TrackBarCanalRed_Scroll(object sender, EventArgs e)
 		{
-			int oldRedValue = (int)numericUpDownCanalRed.Value;
+			//int oldRedValue = (int)numericUpDownCanalRed.Value;
 			numericUpDownCanalRed.Value = trackBarCanalRed.Value;
 			/*if (isCanalRGBind)
       {
@@ -140,9 +131,9 @@ namespace ColorSelector
 			ChangePicBoxColor();
 		}
 
-		private void trackBarCanalGreen_Scroll(object sender, EventArgs e)
+		private void TrackBarCanalGreen_Scroll(object sender, EventArgs e)
 		{
-			int oldGreenValue = (int)numericUpDownCanalGreen.Value;
+			//int oldGreenValue = (int)numericUpDownCanalGreen.Value;
 			numericUpDownCanalGreen.Value = trackBarCanalGreen.Value;
 			/*if (isCanalRGBind)
       {
@@ -177,9 +168,9 @@ namespace ColorSelector
 			ChangePicBoxColor();
 		}
 
-		private void trackBarCanalBlue_Scroll(object sender, EventArgs e)
+		private void TrackBarCanalBlue_Scroll(object sender, EventArgs e)
 		{
-			int oldBlueValue = (int)numericUpDownCanalBlue.Value;
+			//int oldBlueValue = (int)numericUpDownCanalBlue.Value;
 			numericUpDownCanalBlue.Value = trackBarCanalBlue.Value;
 			/*if (isCanalGBBind)
       {
@@ -214,20 +205,20 @@ namespace ColorSelector
 			ChangePicBoxColor();
 		}
 
-		private void trackBarCanalAlpha_Scroll(object sender, EventArgs e)
+		private void TrackBarCanalAlpha_Scroll(object sender, EventArgs e)
 		{
-			int oldAlphaValue = (int)numericUpDownCanalAlpha.Value;
+			//int oldAlphaValue = (int)numericUpDownCanalAlpha.Value;
 			numericUpDownCanalAlpha.Value = trackBarCanalAlpha.Value;
 			ChangePicBoxColor();
 		}
 
-		private void buttonInformation_Click(object sender, EventArgs e)
+		private void ButtonInformation_Click(object sender, EventArgs e)
 		{
-			AboutBoxForm formAboutBox = new AboutBoxForm();
+			using AboutBoxForm formAboutBox = new AboutBoxForm();
 			formAboutBox.ShowDialog();
 		}
 
-		private void buttonHexColorCodeCopyToClipboard_Click(object sender, EventArgs e)
+		private void ButtonHexColorCodeCopyToClipboard_Click(object sender, EventArgs e)
 		{
 			pictureBoxHexColorCodeCopyToClipboard.Visible = true;
 			textBoxHexColorCode.SelectAll();
@@ -235,97 +226,94 @@ namespace ColorSelector
 			timer.Start();
 		}
 
-		private void buttonHtmlColorCodeCopyToClipboard_Click(object sender, EventArgs e)
+		private void ButtonHtmlColorCodeCopyToClipboard_Click(object sender, EventArgs e)
 		{
 			pictureBoxHtmlColorCodeCopyToClipboard.Visible = true;
 			textBoxHtmlColorCode.SelectAll();
 			textBoxHtmlColorCode.Copy();
 		}
 
-		private void buttonRgbColorCodeCopyToClipboard_Click(object sender, EventArgs e)
+		private void ButtonRgbColorCodeCopyToClipboard_Click(object sender, EventArgs e)
 		{
 			pictureBoxRgbColorCodeCopyToClipboard.Visible = true;
 			textBoxRgbColorCode.SelectAll();
 			textBoxRgbColorCode.Copy();
 		}
 
-		private void buttonMathColorCode_Click(object sender, EventArgs e)
+		private void ButtonMathColorCode_Click(object sender, EventArgs e)
 		{
 			pictureBoxMathColorCodeCopyToClipboard.Visible = true;
 			textBoxMathColorCode.SelectAll();
 			textBoxMathColorCode.Copy();
 		}
 
-		private void numericUpDownCanalRed_ValueChanged(object sender, EventArgs e)
+		private void NumericUpDownCanalRed_ValueChanged(object sender, EventArgs e)
 		{
 			int oldRedValue = trackBarCanalRed.Value;
 			trackBarCanalRed.Value = (int)numericUpDownCanalRed.Value;
 			if (isCanalRGBind)
 			{
-				int n = trackBarCanalGreen.Value + (trackBarCanalRed.Value - oldRedValue);
+				int n = trackBarCanalGreen.Value + trackBarCanalRed.Value - oldRedValue;
 				if (n > 0 && n < 255)
 				{
-					numericUpDownCanalGreen.Value = trackBarCanalGreen.Value + (trackBarCanalRed.Value - oldRedValue);
+					numericUpDownCanalGreen.Value = trackBarCanalGreen.Value + trackBarCanalRed.Value - oldRedValue;
 					numericUpDownCanalRed.Value = trackBarCanalRed.Value;
 				}
 			}
 			if (isCanalRBBind)
 			{
-				int n = trackBarCanalBlue.Value + (trackBarCanalRed.Value - oldRedValue);
+				int n = trackBarCanalBlue.Value + trackBarCanalRed.Value - oldRedValue;
 				if (n > 0 && n < 255)
 				{
-					numericUpDownCanalBlue.Value = trackBarCanalBlue.Value + (trackBarCanalRed.Value - oldRedValue);
+					numericUpDownCanalBlue.Value = trackBarCanalBlue.Value + trackBarCanalRed.Value - oldRedValue;
 					numericUpDownCanalRed.Value = trackBarCanalRed.Value;
 				}
 			}
 			if (isCanalRGBBind)
 			{
-				int n = trackBarCanalGreen.Value + (trackBarCanalRed.Value - oldRedValue);
-				int n2 = trackBarCanalBlue.Value + (trackBarCanalRed.Value - oldRedValue);
+				int n = trackBarCanalGreen.Value + trackBarCanalRed.Value - oldRedValue;
+				int n2 = trackBarCanalBlue.Value + trackBarCanalRed.Value - oldRedValue;
 				if (n > 0 && n < 255 && n2 > 0 && n2 < 255)
 				{
-					numericUpDownCanalGreen.Value = trackBarCanalGreen.Value + (trackBarCanalRed.Value - oldRedValue);
-					numericUpDownCanalBlue.Value = trackBarCanalBlue.Value + (trackBarCanalRed.Value - oldRedValue);
+					numericUpDownCanalGreen.Value = trackBarCanalGreen.Value + trackBarCanalRed.Value - oldRedValue;
+					numericUpDownCanalBlue.Value = trackBarCanalBlue.Value + trackBarCanalRed.Value - oldRedValue;
 					numericUpDownCanalRed.Value = trackBarCanalRed.Value;
 				}
 			}
 			ChangePicBoxColor();
 		}
 
-		private void numericUpDownCanalGreen_ValueChanged(object sender, EventArgs e)
+		private void NumericUpDownCanalGreen_ValueChanged(object sender, EventArgs e)
 		{
 			int oldGreenValue = trackBarCanalGreen.Value;
 			trackBarCanalGreen.Value = (int)numericUpDownCanalGreen.Value;
 			if (isCanalRGBind)
 			{
-				int n = trackBarCanalGreen.Value + (trackBarCanalRed.Value - oldGreenValue);
+				int n = trackBarCanalGreen.Value + trackBarCanalRed.Value - oldGreenValue;
 				if (n > 0 && n < 255)
 				{
-					numericUpDownCanalGreen.Value = trackBarCanalGreen.Value + (trackBarCanalRed.Value - oldGreenValue);
+					numericUpDownCanalGreen.Value = trackBarCanalGreen.Value + trackBarCanalRed.Value - oldGreenValue;
 					numericUpDownCanalRed.Value = trackBarCanalRed.Value;
 				}
 			}
-
 			ChangePicBoxColor();
 		}
 
-		private void numericUpDownCanalBlue_ValueChanged(object sender, EventArgs e)
+		private void NumericUpDownCanalBlue_ValueChanged(object sender, EventArgs e)
 		{
-			int oldBlueValue = trackBarCanalBlue.Value;
+			//int oldBlueValue = trackBarCanalBlue.Value;
 			trackBarCanalBlue.Value = (int)numericUpDownCanalBlue.Value;
-
 			ChangePicBoxColor();
 		}
 
-		private void numericUpDownCanalAlpha_ValueChanged(object sender, EventArgs e)
+		private void NumericUpDownCanalAlpha_ValueChanged(object sender, EventArgs e)
 		{
-			int oldAlphaValue = trackBarCanalAlpha.Value;
+			//int oldAlphaValue = trackBarCanalAlpha.Value;
 			trackBarCanalAlpha.Value = (int)numericUpDownCanalAlpha.Value;
-
 			ChangePicBoxColor();
 		}
 
-		private void buttonInvertCanal_Click(object sender, EventArgs e)
+		private void ButtonInvertCanal_Click(object sender, EventArgs e)
 		{
 			InvertCanalRed();
 			InvertCanalGreen();
@@ -336,58 +324,52 @@ namespace ColorSelector
 			}
 		}
 
-		private void buttonSwapCanal_Click(object sender, EventArgs e)
-		{
-			contextMenuStripSwapCanal.Show(buttonSwapCanal, 0, buttonSwapCanal.Size.Height);
-		}
+		private void ButtonSwapCanal_Click(object sender, EventArgs e) => contextMenuStripSwapCanal.Show(control: buttonSwapCanal, x: 0, y: buttonSwapCanal.Size.Height);
 
 		private void ToolStripMenuItemSwapRG_Click(object sender, EventArgs e)
 		{
-			int swap;
-			swap = (int)numericUpDownCanalRed.Value;
+			int swap = (int)numericUpDownCanalRed.Value;
 			numericUpDownCanalRed.Value = numericUpDownCanalGreen.Value;
 			numericUpDownCanalGreen.Value = swap;
 		}
 
 		private void ToolStripMenuItemSwapRB_Click(object sender, EventArgs e)
 		{
-			int swap;
-			swap = (int)numericUpDownCanalRed.Value;
+			int swap = (int)numericUpDownCanalRed.Value;
 			numericUpDownCanalRed.Value = numericUpDownCanalBlue.Value;
 			numericUpDownCanalBlue.Value = swap;
 		}
 
 		private void ToolStripMenuItemSwapGB_Click(object sender, EventArgs e)
 		{
-			int swap;
-			swap = (int)numericUpDownCanalGreen.Value;
+			int swap = (int)numericUpDownCanalGreen.Value;
 			numericUpDownCanalGreen.Value = numericUpDownCanalBlue.Value;
 			numericUpDownCanalBlue.Value = swap;
 		}
 
 		private void ToolStripMenuItemInvertCanalRGB_Click(object sender, EventArgs e)
 		{
-			ToolStripMenuItemInvertCanalR_Click(sender, e);
-			ToolStripMenuItemInvertCanalG_Click(sender, e);
-			ToolStripMenuItemInvertCanalB_Click(sender, e);
+			ToolStripMenuItemInvertCanalR_Click(sender: null, e: EventArgs.Empty);
+			ToolStripMenuItemInvertCanalG_Click(sender: null, e: EventArgs.Empty);
+			ToolStripMenuItemInvertCanalB_Click(sender: null, e: EventArgs.Empty);
 		}
 
 		private void ToolStripMenuItemInvertCanalRG_Click(object sender, EventArgs e)
 		{
-			ToolStripMenuItemInvertCanalR_Click(sender, e);
-			ToolStripMenuItemInvertCanalG_Click(sender, e);
+			ToolStripMenuItemInvertCanalR_Click(sender: null, e: EventArgs.Empty);
+			ToolStripMenuItemInvertCanalG_Click(sender: null, e: EventArgs.Empty);
 		}
 
 		private void ToolStripMenuItemInvertCanalRB_Click(object sender, EventArgs e)
 		{
-			ToolStripMenuItemInvertCanalR_Click(sender, e);
-			ToolStripMenuItemInvertCanalB_Click(sender, e);
+			ToolStripMenuItemInvertCanalR_Click(sender: null, e: EventArgs.Empty);
+			ToolStripMenuItemInvertCanalB_Click(sender: null, e: EventArgs.Empty);
 		}
 
 		private void ToolStripMenuItemInvertCanalGB_Click(object sender, EventArgs e)
 		{
-			ToolStripMenuItemInvertCanalG_Click(sender, e);
-			ToolStripMenuItemInvertCanalB_Click(sender, e);
+			ToolStripMenuItemInvertCanalG_Click(sender: null, e: EventArgs.Empty);
+			ToolStripMenuItemInvertCanalB_Click(sender: null, e: EventArgs.Empty);
 		}
 
 		private void ToolStripMenuItemInvertCanalR_Click(object sender, EventArgs e)
@@ -411,33 +393,33 @@ namespace ColorSelector
 			numericUpDownCanalBlue.Value = color;
 		}
 
-		private void checkBoxWebsafeColor_CheckedChanged(object sender, EventArgs e)
+		private void CheckBoxWebsafeColor_CheckedChanged(object sender, EventArgs e)
 		{
-			WebsafeColorForm formWebsafeColor = new WebsafeColorForm();
+			using WebsafeColorForm websafeColorForm = new WebsafeColorForm();
 			if (checkBoxWebsafeColor.Checked)
 			{
-				formWebsafeColor.Show();
+				websafeColorForm.Show();
 			}
 			else
 			{
-				formWebsafeColor.Close();
+				websafeColorForm.Close();
 			}
 		}
 
-		private void buttonRandomizeCanalRed_Click(object sender, EventArgs e)
+		private void ButtonRandomizeCanalRed_Click(object sender, EventArgs e)
 		{
 			numericUpDownCanalRed.Value = rnd.Next(0, 255);
-			if (isCanalRGBind) { numericUpDownCanalGreen.Value = rnd.Next(0, 255); };
-			if (isCanalRBBind) { numericUpDownCanalBlue.Value = rnd.Next(0, 255); };
-			if (isCanalRGBBind) { numericUpDownCanalRed.Value = rnd.Next(0, 255); numericUpDownCanalBlue.Value = rnd.Next(0, 255); };
+			if (isCanalRGBind) { numericUpDownCanalGreen.Value = rnd.Next(minValue: 0, maxValue: 255); }
+			if (isCanalRBBind) { numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255); }
+			if (isCanalRGBBind) { numericUpDownCanalRed.Value = rnd.Next(minValue: 0, maxValue: 255); numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255); }
 		}
 
-		private void buttonRandomizeCanalGreen_Click(object sender, EventArgs e)
+		private void ButtonRandomizeCanalGreen_Click(object sender, EventArgs e)
 		{
-			numericUpDownCanalGreen.Value = rnd.Next(0, 255);
-			if (isCanalRGBind) { numericUpDownCanalRed.Value = rnd.Next(0, 255); };
-			if (isCanalGBBind) { numericUpDownCanalBlue.Value = rnd.Next(0, 255); };
-			if (isCanalRGBBind) { numericUpDownCanalRed.Value = rnd.Next(0, 255); numericUpDownCanalBlue.Value = rnd.Next(0, 255); };
+			numericUpDownCanalGreen.Value = rnd.Next(minValue: 0, maxValue: 255);
+			if (isCanalRGBind) { numericUpDownCanalRed.Value = rnd.Next(minValue: 0, maxValue: 255); }
+			if (isCanalGBBind) { numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255); }
+			if (isCanalRGBBind) { numericUpDownCanalRed.Value = rnd.Next(minValue: 0, maxValue: 255); numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255); }
 		}
 
 		private void ButtonRandomizeCanalBlue_Click(object sender, EventArgs e)
@@ -617,7 +599,6 @@ namespace ColorSelector
 			numericUpDownCanalRed.Value = rnd.Next(minValue: 0, maxValue: 255);
 			numericUpDownCanalGreen.Value = rnd.Next(minValue: 0, maxValue: 255);
 			numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255);
-
 		}
 
 		private void ToolStripMenuItemRandomizeCanalRG_Click(object sender, EventArgs e)

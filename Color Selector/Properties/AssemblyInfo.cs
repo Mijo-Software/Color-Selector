@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Color Selector")]
 [assembly: AssemblyDescription("Mit 'Color Selector' können alle RGB-Farben erzeugt und bearbeitet werden.\n\n Dieses Entwicklungstool eignet sich besonders für Webdesigner und Programmierer.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Mijo Software (http://mijo-software.de)")]
+[assembly: AssemblyCompany("Mijo Software (https://mijo-software.de)")]
 [assembly: AssemblyProduct("Color Selector")]
 [assembly: AssemblyCopyright("2010-2019 Michael Johne <michael-johne@gmx.de>")]
 [assembly: AssemblyTrademark("Color Selector")]
