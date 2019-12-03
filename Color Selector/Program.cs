@@ -1,20 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ColorSelector
 {
-  static class Program
-  {
-    /// <summary>
-    /// Der Haupteinstiegspunkt für die Anwendung.
-    /// </summary>
-    [STAThread]
-    static void Main()
-    {
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new ColorSelectorForm());
-    }
-  }
+	/// <summary>
+	/// Program
+	/// </summary>
+	internal static class Program
+	{
+		/// <summary>
+		/// main entrance point of the application
+		/// </summary>
+		[STAThread]
+		private static void Main()
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+			using ColorSelectorForm colorSelectorForm = new ColorSelectorForm();
+			Application.Run(mainForm: colorSelectorForm);
+		}
+	}
 }

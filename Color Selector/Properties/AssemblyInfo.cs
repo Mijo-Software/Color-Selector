@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Resources;
 using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mijo Software (http://mijo-software.de)")]
 [assembly: AssemblyProduct("Color Selector")]
-[assembly: AssemblyCopyright("2010-2015 Michael Johne <michael-johne@gmx.de>")]
+[assembly: AssemblyCopyright("2010-2019 Michael Johne <michael-johne@gmx.de>")]
 [assembly: AssemblyTrademark("Color Selector")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,6 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.6.1.13")]
-[assembly: AssemblyFileVersion("1.6.1.13")]
+[assembly: AssemblyVersion("1.7.0.14")]
+[assembly: AssemblyFileVersion("1.7.0.14")]
+[assembly: NeutralResourcesLanguage("de")]
