@@ -156,6 +156,7 @@
 			this.okButton.Size = new System.Drawing.Size(59, 23);
 			this.okButton.TabIndex = 5;
 			this.okButton.Text = "&OK";
+			this.okButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.okButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTipAboutBox.SetToolTip(this.okButton, "OK");
 			this.okButton.Click += new System.EventHandler(this.OkButton_Click);

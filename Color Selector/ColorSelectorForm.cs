@@ -13,7 +13,6 @@ namespace ColorSelector
 		private bool isCanalGBBind;
 		private bool isCanalRGBBind;
 
-		//Graphics g;
 		private readonly Random rnd = new Random();
 
 		public ColorSelectorForm()
@@ -24,7 +23,6 @@ namespace ColorSelector
 
 		private void ColorSelectorForm_Load(object sender, EventArgs e)
 		{
-			//pictureBoxColorRGB.Image = new Bitmap("C:\\Users\\micha_000\\Documents\\Visual Studio 2015\\Projects\\Color Selector\\Color Selector\\Resources\\information.png");
 			numericUpDownCanalRed.Value = rnd.Next(minValue: 0, maxValue: 255);
 			numericUpDownCanalGreen.Value = rnd.Next(minValue: 0, maxValue: 255);
 			numericUpDownCanalBlue.Value = rnd.Next(minValue: 0, maxValue: 255);
@@ -67,17 +65,6 @@ namespace ColorSelector
 			{
 				pictureBoxColorRGB.BackColor = Color.FromArgb(alpha: 255, red: trackBarCanalRed.Value, green: trackBarCanalGreen.Value, blue: trackBarCanalBlue.Value);
 			}
-			//ColorSelectorForm_Paint(this, null);
-			/*g = CreateGraphics();
-      g.CompositingQuality = CompositingQuality.GammaCorrected;
-      Pen pen = new Pen(Color.FromArgb(trackBarCanalAlpha.Value, trackBarCanalRed.Value, trackBarCanalGreen.Value, trackBarCanalBlue.Value), 15);
-      Pen semiTransPen = new Pen(Color.FromArgb(128, 0, 0, 255), 15);
-      SolidBrush opaqueBrush = new SolidBrush(pictureBoxColorRGB.BackColor);
-      g.DrawLine(pen, 0, 20, 100, 20);
-      g.DrawLine(semiTransPen, 0, 40, 100, 40);
-      g.DrawLine(pen, pictureBoxColorRGB.Left, pictureBoxColorRGB.Top, pictureBoxColorRGB.Right, pictureBoxColorRGB.Bottom);
-      g.FillRectangle(opaqueBrush, pictureBoxColorRGB.Bounds);*/
-
 			if (checkBoxEnableAlpha.Checked)
 			{
 				textBoxHexColorCode.Text = $"${strColorAlphaHex}{strColorBlueHex}{strColorGreenHex}{strColorRedHex}";
@@ -643,18 +630,6 @@ namespace ColorSelector
 					numericUpDownCanalAlpha.Value = colorDialog.Color.A;
 				}
 			}
-		}
-
-		private void ColorSelectorForm_Paint(object sender, PaintEventArgs e)
-		{
-			/*Graphics g = e.Graphics;
-      Pen opaquePen = new Pen(Color.FromArgb(255, 0, 0, 255), 15);
-      Pen pen = new Pen(Color.FromArgb(trackBarCanalAlpha.Value, trackBarCanalRed.Value, trackBarCanalGreen.Value, trackBarCanalBlue.Value), 15);
-      Pen semiTransPen = new Pen(Color.FromArgb(128, 0, 0, 255), 15);
-      SolidBrush opaqueBrush = new SolidBrush(pictureBoxColorRGB.BackColor);
-      g.DrawLine(opaquePen, 0, 20, 100, 20);
-      g.DrawLine(semiTransPen, 0, 40, 100, 40);
-      g.FillRectangle(opaqueBrush, pictureBoxColorRGB.Bounds);*/
 		}
 
 		private void MirrorCanalRed() => numericUpDownCanalRed.Value = numericUpDownCanalRed.Value <= 127 ? 128 - numericUpDownCanalRed.Value + 127 : 255 - numericUpDownCanalRed.Value;
