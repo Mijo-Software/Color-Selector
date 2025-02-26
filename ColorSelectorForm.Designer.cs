@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColorSelectorForm));
 			statusStrip = new StatusStrip();
 			toolStripStatusLabelInformation = new ToolStripStatusLabel();
 			toolStripContainer = new ToolStripContainer();
@@ -41,7 +42,7 @@
 			textBoxColorCodeHtml = new TextBox();
 			labelColorCodeHex = new Label();
 			textBoxColorCodeHex = new TextBox();
-			buttonbuttonCopyToClipboardColorCodeMath = new Button();
+			buttonCopyToClipboardColorCodeMath = new Button();
 			buttonCopyToClipboardColorCodeHex = new Button();
 			buttonCopyToClipboardColorCodeRgb = new Button();
 			buttonCopyToClipboardColorCodeHtml = new Button();
@@ -62,7 +63,7 @@
 			labelChannelRed = new Label();
 			labelChannelGreen = new Label();
 			labelChannelBlue = new Label();
-			labelAlpha = new Label();
+			labelChannelAlpha = new Label();
 			numericUpDownChannelAlpha = new NumericUpDown();
 			trackBarChannelAlpha = new TrackBar();
 			numericUpDownChannelBlue = new NumericUpDown();
@@ -89,15 +90,15 @@
 			toolStripMenuItemSwapRedGreen = new ToolStripMenuItem();
 			toolStripMenuItemSwapRedBlue = new ToolStripMenuItem();
 			toolStripMenuItemBlueGreen = new ToolStripMenuItem();
+			toolStripDropDownButtonSwap = new ToolStripDropDownButton();
 			toolStrip = new ToolStrip();
 			toolStripButtonInvert = new ToolStripButton();
 			toolStripButtonRandomize = new ToolStripButton();
 			toolStripButtonMirror = new ToolStripButton();
-			toolStripDropDownButtonSwap = new ToolStripDropDownButton();
-			toolStripDropDownButton1 = new ToolStripDropDownButton();
 			toolStripSeparator1 = new ToolStripSeparator();
 			toolStripButtonAbout = new ToolStripButton();
 			toolTip = new ToolTip(components);
+			colorDialog = new ColorDialog();
 			statusStrip.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
@@ -125,12 +126,14 @@
 			// 
 			// statusStrip
 			// 
+			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Dock = DockStyle.None;
 			statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelInformation });
 			statusStrip.Location = new Point(0, 0);
 			statusStrip.Name = "statusStrip";
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
 			statusStrip.Size = new Size(480, 22);
+			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 0;
 			statusStrip.Enter += SetStatusbar_Enter;
 			statusStrip.Leave += ClearStatusbar_Leave;
@@ -139,6 +142,7 @@
 			// 
 			// toolStripStatusLabelInformation
 			// 
+			toolStripStatusLabelInformation.AccessibleRole = AccessibleRole.StaticText;
 			toolStripStatusLabelInformation.Name = "toolStripStatusLabelInformation";
 			toolStripStatusLabelInformation.Size = new Size(70, 17);
 			toolStripStatusLabelInformation.Text = "information";
@@ -154,6 +158,7 @@
 			// 
 			// toolStripContainer.ContentPanel
 			// 
+			toolStripContainer.ContentPanel.AccessibleRole = AccessibleRole.Pane;
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanelColorCodes);
 			toolStripContainer.ContentPanel.Controls.Add(panelCanvas);
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanelRgba);
@@ -167,6 +172,7 @@
 			// 
 			// toolStripContainer.TopToolStripPanel
 			// 
+			toolStripContainer.TopToolStripPanel.AccessibleRole = AccessibleRole.Pane;
 			toolStripContainer.TopToolStripPanel.Controls.Add(menuStrip);
 			toolStripContainer.TopToolStripPanel.Controls.Add(toolStrip);
 			toolStripContainer.TopToolStripPanel.Enter += SetStatusbar_Enter;
@@ -176,6 +182,7 @@
 			// 
 			// tableLayoutPanelColorCodes
 			// 
+			tableLayoutPanelColorCodes.AccessibleRole = AccessibleRole.Grouping;
 			tableLayoutPanelColorCodes.ColumnCount = 3;
 			tableLayoutPanelColorCodes.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanelColorCodes.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
@@ -188,7 +195,7 @@
 			tableLayoutPanelColorCodes.Controls.Add(textBoxColorCodeHtml, 1, 1);
 			tableLayoutPanelColorCodes.Controls.Add(labelColorCodeHex, 0, 0);
 			tableLayoutPanelColorCodes.Controls.Add(textBoxColorCodeHex, 1, 0);
-			tableLayoutPanelColorCodes.Controls.Add(buttonbuttonCopyToClipboardColorCodeMath, 2, 3);
+			tableLayoutPanelColorCodes.Controls.Add(buttonCopyToClipboardColorCodeMath, 2, 3);
 			tableLayoutPanelColorCodes.Controls.Add(buttonCopyToClipboardColorCodeHex, 2, 0);
 			tableLayoutPanelColorCodes.Controls.Add(buttonCopyToClipboardColorCodeRgb, 2, 2);
 			tableLayoutPanelColorCodes.Controls.Add(buttonCopyToClipboardColorCodeHtml, 2, 1);
@@ -208,6 +215,7 @@
 			// 
 			// labelColorCodeMath
 			// 
+			labelColorCodeMath.AccessibleRole = AccessibleRole.StaticText;
 			labelColorCodeMath.Dock = DockStyle.Fill;
 			labelColorCodeMath.Location = new Point(3, 89);
 			labelColorCodeMath.Name = "labelColorCodeMath";
@@ -218,6 +226,7 @@
 			// 
 			// textBoxColorCodeMath
 			// 
+			textBoxColorCodeMath.AccessibleRole = AccessibleRole.Text;
 			textBoxColorCodeMath.Dock = DockStyle.Fill;
 			textBoxColorCodeMath.Location = new Point(109, 92);
 			textBoxColorCodeMath.Name = "textBoxColorCodeMath";
@@ -227,6 +236,7 @@
 			// 
 			// labelColorCodeRgb
 			// 
+			labelColorCodeRgb.AccessibleRole = AccessibleRole.StaticText;
 			labelColorCodeRgb.Dock = DockStyle.Fill;
 			labelColorCodeRgb.Location = new Point(3, 60);
 			labelColorCodeRgb.Name = "labelColorCodeRgb";
@@ -237,6 +247,7 @@
 			// 
 			// textBoxColorCodeRgb
 			// 
+			textBoxColorCodeRgb.AccessibleRole = AccessibleRole.Text;
 			textBoxColorCodeRgb.Dock = DockStyle.Fill;
 			textBoxColorCodeRgb.Location = new Point(109, 63);
 			textBoxColorCodeRgb.Name = "textBoxColorCodeRgb";
@@ -246,6 +257,7 @@
 			// 
 			// labelColorCodeHtml
 			// 
+			labelColorCodeHtml.AccessibleRole = AccessibleRole.StaticText;
 			labelColorCodeHtml.Dock = DockStyle.Fill;
 			labelColorCodeHtml.Location = new Point(3, 30);
 			labelColorCodeHtml.Name = "labelColorCodeHtml";
@@ -256,6 +268,7 @@
 			// 
 			// textBoxColorCodeHtml
 			// 
+			textBoxColorCodeHtml.AccessibleRole = AccessibleRole.Text;
 			textBoxColorCodeHtml.Dock = DockStyle.Fill;
 			textBoxColorCodeHtml.Location = new Point(109, 33);
 			textBoxColorCodeHtml.Name = "textBoxColorCodeHtml";
@@ -265,6 +278,7 @@
 			// 
 			// labelColorCodeHex
 			// 
+			labelColorCodeHex.AccessibleRole = AccessibleRole.StaticText;
 			labelColorCodeHex.Dock = DockStyle.Fill;
 			labelColorCodeHex.Location = new Point(3, 0);
 			labelColorCodeHex.Name = "labelColorCodeHex";
@@ -275,6 +289,7 @@
 			// 
 			// textBoxColorCodeHex
 			// 
+			textBoxColorCodeHex.AccessibleRole = AccessibleRole.Text;
 			textBoxColorCodeHex.Dock = DockStyle.Fill;
 			textBoxColorCodeHex.Location = new Point(109, 3);
 			textBoxColorCodeHex.Name = "textBoxColorCodeHex";
@@ -282,19 +297,21 @@
 			textBoxColorCodeHex.Size = new Size(144, 23);
 			textBoxColorCodeHex.TabIndex = 1;
 			// 
-			// buttonbuttonCopyToClipboardColorCodeMath
+			// buttonCopyToClipboardColorCodeMath
 			// 
-			buttonbuttonCopyToClipboardColorCodeMath.Dock = DockStyle.Fill;
-			buttonbuttonCopyToClipboardColorCodeMath.Image = ColorSelector.Properties.Resources.clipboard_empty;
-			buttonbuttonCopyToClipboardColorCodeMath.Location = new Point(259, 92);
-			buttonbuttonCopyToClipboardColorCodeMath.Name = "buttonbuttonCopyToClipboardColorCodeMath";
-			buttonbuttonCopyToClipboardColorCodeMath.Size = new Size(37, 24);
-			buttonbuttonCopyToClipboardColorCodeMath.TabIndex = 11;
-			buttonbuttonCopyToClipboardColorCodeMath.UseVisualStyleBackColor = true;
-			buttonbuttonCopyToClipboardColorCodeMath.Click += ButtonbuttonCopyToClipboardColorCodeMath_Click;
+			buttonCopyToClipboardColorCodeMath.AccessibleRole = AccessibleRole.PushButton;
+			buttonCopyToClipboardColorCodeMath.Dock = DockStyle.Fill;
+			buttonCopyToClipboardColorCodeMath.Image = ColorSelector.Properties.Resources.clipboard_empty;
+			buttonCopyToClipboardColorCodeMath.Location = new Point(259, 92);
+			buttonCopyToClipboardColorCodeMath.Name = "buttonCopyToClipboardColorCodeMath";
+			buttonCopyToClipboardColorCodeMath.Size = new Size(37, 24);
+			buttonCopyToClipboardColorCodeMath.TabIndex = 11;
+			buttonCopyToClipboardColorCodeMath.UseVisualStyleBackColor = true;
+			buttonCopyToClipboardColorCodeMath.Click += ButtonCopyToClipboardColorCodeMath_Click;
 			// 
 			// buttonCopyToClipboardColorCodeHex
 			// 
+			buttonCopyToClipboardColorCodeHex.AccessibleRole = AccessibleRole.PushButton;
 			buttonCopyToClipboardColorCodeHex.Dock = DockStyle.Fill;
 			buttonCopyToClipboardColorCodeHex.Image = ColorSelector.Properties.Resources.clipboard_empty;
 			buttonCopyToClipboardColorCodeHex.Location = new Point(259, 3);
@@ -306,6 +323,7 @@
 			// 
 			// buttonCopyToClipboardColorCodeRgb
 			// 
+			buttonCopyToClipboardColorCodeRgb.AccessibleRole = AccessibleRole.PushButton;
 			buttonCopyToClipboardColorCodeRgb.Dock = DockStyle.Fill;
 			buttonCopyToClipboardColorCodeRgb.Image = ColorSelector.Properties.Resources.clipboard_empty;
 			buttonCopyToClipboardColorCodeRgb.Location = new Point(259, 63);
@@ -317,6 +335,7 @@
 			// 
 			// buttonCopyToClipboardColorCodeHtml
 			// 
+			buttonCopyToClipboardColorCodeHtml.AccessibleRole = AccessibleRole.PushButton;
 			buttonCopyToClipboardColorCodeHtml.Dock = DockStyle.Fill;
 			buttonCopyToClipboardColorCodeHtml.Image = ColorSelector.Properties.Resources.clipboard_empty;
 			buttonCopyToClipboardColorCodeHtml.Location = new Point(259, 33);
@@ -351,9 +370,11 @@
 			pictureBoxCanvas.Size = new Size(125, 119);
 			pictureBoxCanvas.TabIndex = 1;
 			pictureBoxCanvas.TabStop = false;
+			pictureBoxCanvas.DoubleClick += PictureBoxCanvas_DoubleClick;
 			// 
 			// tableLayoutPanelRgba
 			// 
+			tableLayoutPanelRgba.AccessibleRole = AccessibleRole.Grouping;
 			tableLayoutPanelRgba.ColumnCount = 7;
 			tableLayoutPanelRgba.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 54F));
 			tableLayoutPanelRgba.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 251F));
@@ -376,7 +397,7 @@
 			tableLayoutPanelRgba.Controls.Add(labelChannelRed, 0, 0);
 			tableLayoutPanelRgba.Controls.Add(labelChannelGreen, 0, 1);
 			tableLayoutPanelRgba.Controls.Add(labelChannelBlue, 0, 2);
-			tableLayoutPanelRgba.Controls.Add(labelAlpha, 0, 3);
+			tableLayoutPanelRgba.Controls.Add(labelChannelAlpha, 0, 3);
 			tableLayoutPanelRgba.Controls.Add(numericUpDownChannelAlpha, 2, 3);
 			tableLayoutPanelRgba.Controls.Add(trackBarChannelAlpha, 1, 3);
 			tableLayoutPanelRgba.Controls.Add(numericUpDownChannelBlue, 2, 2);
@@ -429,6 +450,7 @@
 			// 
 			// buttonMirrorChannelAlpha
 			// 
+			buttonMirrorChannelAlpha.AccessibleRole = AccessibleRole.PushButton;
 			buttonMirrorChannelAlpha.BackgroundImageLayout = ImageLayout.Center;
 			buttonMirrorChannelAlpha.Dock = DockStyle.Fill;
 			buttonMirrorChannelAlpha.Image = ColorSelector.Properties.Resources.ice_cube;
@@ -441,6 +463,7 @@
 			// 
 			// buttonMirrorChannelBlue
 			// 
+			buttonMirrorChannelBlue.AccessibleRole = AccessibleRole.PushButton;
 			buttonMirrorChannelBlue.BackgroundImageLayout = ImageLayout.Center;
 			buttonMirrorChannelBlue.Dock = DockStyle.Fill;
 			buttonMirrorChannelBlue.Image = ColorSelector.Properties.Resources.ice_cube;
@@ -453,6 +476,7 @@
 			// 
 			// buttonMirrorChannelGreen
 			// 
+			buttonMirrorChannelGreen.AccessibleRole = AccessibleRole.PushButton;
 			buttonMirrorChannelGreen.BackgroundImageLayout = ImageLayout.Center;
 			buttonMirrorChannelGreen.Dock = DockStyle.Fill;
 			buttonMirrorChannelGreen.Image = ColorSelector.Properties.Resources.ice_cube;
@@ -465,6 +489,7 @@
 			// 
 			// buttonMirrorChannelRed
 			// 
+			buttonMirrorChannelRed.AccessibleRole = AccessibleRole.PushButton;
 			buttonMirrorChannelRed.BackgroundImageLayout = ImageLayout.Center;
 			buttonMirrorChannelRed.Dock = DockStyle.Fill;
 			buttonMirrorChannelRed.Image = ColorSelector.Properties.Resources.ice_cube;
@@ -477,6 +502,7 @@
 			// 
 			// buttonInvertChannelAlpha
 			// 
+			buttonInvertChannelAlpha.AccessibleRole = AccessibleRole.PushButton;
 			buttonInvertChannelAlpha.BackgroundImageLayout = ImageLayout.Center;
 			buttonInvertChannelAlpha.Dock = DockStyle.Fill;
 			buttonInvertChannelAlpha.Image = ColorSelector.Properties.Resources.contrast;
@@ -489,6 +515,7 @@
 			// 
 			// buttonInvertChannelBlue
 			// 
+			buttonInvertChannelBlue.AccessibleRole = AccessibleRole.PushButton;
 			buttonInvertChannelBlue.BackgroundImageLayout = ImageLayout.Center;
 			buttonInvertChannelBlue.Dock = DockStyle.Fill;
 			buttonInvertChannelBlue.Image = ColorSelector.Properties.Resources.contrast;
@@ -501,6 +528,7 @@
 			// 
 			// buttonInvertChannelGreen
 			// 
+			buttonInvertChannelGreen.AccessibleRole = AccessibleRole.PushButton;
 			buttonInvertChannelGreen.BackgroundImageLayout = ImageLayout.Center;
 			buttonInvertChannelGreen.Dock = DockStyle.Fill;
 			buttonInvertChannelGreen.Image = ColorSelector.Properties.Resources.contrast;
@@ -513,6 +541,7 @@
 			// 
 			// buttonInvertChannelRed
 			// 
+			buttonInvertChannelRed.AccessibleRole = AccessibleRole.PushButton;
 			buttonInvertChannelRed.BackgroundImageLayout = ImageLayout.Center;
 			buttonInvertChannelRed.Dock = DockStyle.Fill;
 			buttonInvertChannelRed.Image = ColorSelector.Properties.Resources.contrast;
@@ -525,6 +554,7 @@
 			// 
 			// labelChannelRed
 			// 
+			labelChannelRed.AccessibleRole = AccessibleRole.StaticText;
 			labelChannelRed.AutoEllipsis = true;
 			labelChannelRed.Dock = DockStyle.Fill;
 			labelChannelRed.Location = new Point(3, 0);
@@ -536,6 +566,7 @@
 			// 
 			// labelChannelGreen
 			// 
+			labelChannelGreen.AccessibleRole = AccessibleRole.StaticText;
 			labelChannelGreen.AutoEllipsis = true;
 			labelChannelGreen.Dock = DockStyle.Fill;
 			labelChannelGreen.Location = new Point(3, 30);
@@ -547,6 +578,7 @@
 			// 
 			// labelChannelBlue
 			// 
+			labelChannelBlue.AccessibleRole = AccessibleRole.StaticText;
 			labelChannelBlue.AutoEllipsis = true;
 			labelChannelBlue.Dock = DockStyle.Fill;
 			labelChannelBlue.Location = new Point(3, 60);
@@ -556,20 +588,23 @@
 			labelChannelBlue.Text = "Blau";
 			labelChannelBlue.TextAlign = ContentAlignment.MiddleLeft;
 			// 
-			// labelAlpha
+			// labelChannelAlpha
 			// 
-			labelAlpha.AutoEllipsis = true;
-			labelAlpha.Cursor = Cursors.Hand;
-			labelAlpha.Dock = DockStyle.Fill;
-			labelAlpha.Location = new Point(3, 90);
-			labelAlpha.Name = "labelAlpha";
-			labelAlpha.Size = new Size(48, 31);
-			labelAlpha.TabIndex = 18;
-			labelAlpha.Text = "Alpha";
-			labelAlpha.TextAlign = ContentAlignment.MiddleLeft;
+			labelChannelAlpha.AccessibleRole = AccessibleRole.StaticText;
+			labelChannelAlpha.AutoEllipsis = true;
+			labelChannelAlpha.Cursor = Cursors.Hand;
+			labelChannelAlpha.Dock = DockStyle.Fill;
+			labelChannelAlpha.Location = new Point(3, 90);
+			labelChannelAlpha.Name = "labelChannelAlpha";
+			labelChannelAlpha.Size = new Size(48, 31);
+			labelChannelAlpha.TabIndex = 18;
+			labelChannelAlpha.Text = "Alpha";
+			labelChannelAlpha.TextAlign = ContentAlignment.MiddleLeft;
+			labelChannelAlpha.Click += LabelChannelAlpha_Click;
 			// 
 			// numericUpDownChannelAlpha
 			// 
+			numericUpDownChannelAlpha.AccessibleRole = AccessibleRole.SpinButton;
 			numericUpDownChannelAlpha.Dock = DockStyle.Fill;
 			numericUpDownChannelAlpha.Location = new Point(308, 93);
 			numericUpDownChannelAlpha.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
@@ -582,6 +617,7 @@
 			// 
 			// trackBarChannelAlpha
 			// 
+			trackBarChannelAlpha.AccessibleRole = AccessibleRole.Slider;
 			trackBarChannelAlpha.Dock = DockStyle.Fill;
 			trackBarChannelAlpha.Location = new Point(57, 93);
 			trackBarChannelAlpha.Maximum = 255;
@@ -594,6 +630,7 @@
 			// 
 			// numericUpDownChannelBlue
 			// 
+			numericUpDownChannelBlue.AccessibleRole = AccessibleRole.SpinButton;
 			numericUpDownChannelBlue.Dock = DockStyle.Fill;
 			numericUpDownChannelBlue.Location = new Point(308, 63);
 			numericUpDownChannelBlue.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
@@ -606,6 +643,7 @@
 			// 
 			// numericUpDownChannelGreen
 			// 
+			numericUpDownChannelGreen.AccessibleRole = AccessibleRole.SpinButton;
 			numericUpDownChannelGreen.Dock = DockStyle.Fill;
 			numericUpDownChannelGreen.Location = new Point(308, 33);
 			numericUpDownChannelGreen.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
@@ -618,6 +656,7 @@
 			// 
 			// trackBarChannelBlue
 			// 
+			trackBarChannelBlue.AccessibleRole = AccessibleRole.Slider;
 			trackBarChannelBlue.Dock = DockStyle.Fill;
 			trackBarChannelBlue.Location = new Point(57, 63);
 			trackBarChannelBlue.Maximum = 255;
@@ -630,6 +669,7 @@
 			// 
 			// trackBarChannelGreen
 			// 
+			trackBarChannelGreen.AccessibleRole = AccessibleRole.Slider;
 			trackBarChannelGreen.Dock = DockStyle.Fill;
 			trackBarChannelGreen.Location = new Point(57, 33);
 			trackBarChannelGreen.Maximum = 255;
@@ -642,6 +682,7 @@
 			// 
 			// numericUpDownChannelRed
 			// 
+			numericUpDownChannelRed.AccessibleRole = AccessibleRole.SpinButton;
 			numericUpDownChannelRed.Dock = DockStyle.Fill;
 			numericUpDownChannelRed.Location = new Point(308, 3);
 			numericUpDownChannelRed.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
@@ -654,6 +695,7 @@
 			// 
 			// trackBarChannelRed
 			// 
+			trackBarChannelRed.AccessibleRole = AccessibleRole.Slider;
 			trackBarChannelRed.Dock = DockStyle.Fill;
 			trackBarChannelRed.Location = new Point(57, 3);
 			trackBarChannelRed.Maximum = 255;
@@ -666,6 +708,7 @@
 			// 
 			// buttonRandomizeChannelRed
 			// 
+			buttonRandomizeChannelRed.AccessibleRole = AccessibleRole.PushButton;
 			buttonRandomizeChannelRed.BackgroundImageLayout = ImageLayout.Center;
 			buttonRandomizeChannelRed.Dock = DockStyle.Fill;
 			buttonRandomizeChannelRed.Image = ColorSelector.Properties.Resources.dice;
@@ -678,6 +721,7 @@
 			// 
 			// buttonRandomizeChannelGreen
 			// 
+			buttonRandomizeChannelGreen.AccessibleRole = AccessibleRole.PushButton;
 			buttonRandomizeChannelGreen.BackgroundImageLayout = ImageLayout.Center;
 			buttonRandomizeChannelGreen.Dock = DockStyle.Fill;
 			buttonRandomizeChannelGreen.Image = ColorSelector.Properties.Resources.dice;
@@ -690,6 +734,7 @@
 			// 
 			// buttonRandomizeChannelBlue
 			// 
+			buttonRandomizeChannelBlue.AccessibleRole = AccessibleRole.PushButton;
 			buttonRandomizeChannelBlue.BackgroundImageLayout = ImageLayout.Center;
 			buttonRandomizeChannelBlue.Dock = DockStyle.Fill;
 			buttonRandomizeChannelBlue.Image = ColorSelector.Properties.Resources.dice;
@@ -702,6 +747,7 @@
 			// 
 			// buttonRandomizeChannelAlpha
 			// 
+			buttonRandomizeChannelAlpha.AccessibleRole = AccessibleRole.PushButton;
 			buttonRandomizeChannelAlpha.BackgroundImageLayout = ImageLayout.Center;
 			buttonRandomizeChannelAlpha.Dock = DockStyle.Fill;
 			buttonRandomizeChannelAlpha.Image = ColorSelector.Properties.Resources.dice;
@@ -714,6 +760,7 @@
 			// 
 			// menuStrip
 			// 
+			menuStrip.AccessibleRole = AccessibleRole.MenuBar;
 			menuStrip.Dock = DockStyle.None;
 			menuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItemFile, toolStripMenuItemOperations });
 			menuStrip.Location = new Point(0, 0);
@@ -728,6 +775,7 @@
 			// 
 			// toolStripMenuItemFile
 			// 
+			toolStripMenuItemFile.AccessibleRole = AccessibleRole.MenuPopup;
 			toolStripMenuItemFile.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAbout, toolStripSeparator2, toolStripMenuItemExit });
 			toolStripMenuItemFile.Name = "toolStripMenuItemFile";
 			toolStripMenuItemFile.Size = new Size(46, 20);
@@ -737,6 +785,7 @@
 			// 
 			// toolStripMenuItemAbout
 			// 
+			toolStripMenuItemAbout.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemAbout.Image = ColorSelector.Properties.Resources.information;
 			toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
 			toolStripMenuItemAbout.Size = new Size(100, 22);
@@ -747,6 +796,7 @@
 			// 
 			// toolStripSeparator2
 			// 
+			toolStripSeparator2.AccessibleRole = AccessibleRole.Separator;
 			toolStripSeparator2.Name = "toolStripSeparator2";
 			toolStripSeparator2.Size = new Size(97, 6);
 			toolStripSeparator2.MouseEnter += SetStatusbar_Enter;
@@ -754,6 +804,7 @@
 			// 
 			// toolStripMenuItemExit
 			// 
+			toolStripMenuItemExit.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemExit.Image = ColorSelector.Properties.Resources.door;
 			toolStripMenuItemExit.Name = "toolStripMenuItemExit";
 			toolStripMenuItemExit.Size = new Size(100, 22);
@@ -764,6 +815,7 @@
 			// 
 			// toolStripMenuItemOperations
 			// 
+			toolStripMenuItemOperations.AccessibleRole = AccessibleRole.MenuPopup;
 			toolStripMenuItemOperations.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemInvert, toolStripMenuItemRandomize, toolStripMenuItemMirror, toolStripMenuItemSwap });
 			toolStripMenuItemOperations.Name = "toolStripMenuItemOperations";
 			toolStripMenuItemOperations.Size = new Size(85, 20);
@@ -773,6 +825,7 @@
 			// 
 			// toolStripMenuItemInvert
 			// 
+			toolStripMenuItemInvert.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemInvert.Image = ColorSelector.Properties.Resources.contrast;
 			toolStripMenuItemInvert.Name = "toolStripMenuItemInvert";
 			toolStripMenuItemInvert.Size = new Size(210, 22);
@@ -783,6 +836,7 @@
 			// 
 			// toolStripMenuItemRandomize
 			// 
+			toolStripMenuItemRandomize.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemRandomize.Image = ColorSelector.Properties.Resources.dice;
 			toolStripMenuItemRandomize.Name = "toolStripMenuItemRandomize";
 			toolStripMenuItemRandomize.Size = new Size(210, 22);
@@ -793,6 +847,7 @@
 			// 
 			// toolStripMenuItemMirror
 			// 
+			toolStripMenuItemMirror.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemMirror.Image = ColorSelector.Properties.Resources.ice_cube;
 			toolStripMenuItemMirror.Name = "toolStripMenuItemMirror";
 			toolStripMenuItemMirror.Size = new Size(210, 22);
@@ -803,6 +858,7 @@
 			// 
 			// toolStripMenuItemSwap
 			// 
+			toolStripMenuItemSwap.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSwap.DropDown = contextMenuStripSwap;
 			toolStripMenuItemSwap.Image = ColorSelector.Properties.Resources.arrow_switch;
 			toolStripMenuItemSwap.Name = "toolStripMenuItemSwap";
@@ -813,14 +869,17 @@
 			// 
 			// contextMenuStripSwap
 			// 
+			contextMenuStripSwap.AccessibleRole = AccessibleRole.MenuPopup;
 			contextMenuStripSwap.Items.AddRange(new ToolStripItem[] { toolStripMenuItemSwapRedGreen, toolStripMenuItemSwapRedBlue, toolStripMenuItemBlueGreen });
 			contextMenuStripSwap.Name = "contextMenuStripSwap";
+			contextMenuStripSwap.OwnerItem = toolStripMenuItemSwap;
 			contextMenuStripSwap.Size = new Size(107, 70);
 			contextMenuStripSwap.MouseEnter += SetStatusbar_Enter;
 			contextMenuStripSwap.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// toolStripMenuItemSwapRedGreen
 			// 
+			toolStripMenuItemSwapRedGreen.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSwapRedGreen.Name = "toolStripMenuItemSwapRedGreen";
 			toolStripMenuItemSwapRedGreen.Size = new Size(106, 22);
 			toolStripMenuItemSwapRedGreen.Text = "R ⇄ G";
@@ -830,6 +889,7 @@
 			// 
 			// toolStripMenuItemSwapRedBlue
 			// 
+			toolStripMenuItemSwapRedBlue.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSwapRedBlue.Name = "toolStripMenuItemSwapRedBlue";
 			toolStripMenuItemSwapRedBlue.Size = new Size(106, 22);
 			toolStripMenuItemSwapRedBlue.Text = "R ⇄ B";
@@ -839,6 +899,7 @@
 			// 
 			// toolStripMenuItemBlueGreen
 			// 
+			toolStripMenuItemBlueGreen.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemBlueGreen.Name = "toolStripMenuItemBlueGreen";
 			toolStripMenuItemBlueGreen.Size = new Size(106, 22);
 			toolStripMenuItemBlueGreen.Text = "B ⇄ G";
@@ -846,21 +907,36 @@
 			toolStripMenuItemBlueGreen.MouseEnter += SetStatusbar_Enter;
 			toolStripMenuItemBlueGreen.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// toolStripDropDownButtonSwap
+			// 
+			toolStripDropDownButtonSwap.AccessibleRole = AccessibleRole.PushButton;
+			toolStripDropDownButtonSwap.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			toolStripDropDownButtonSwap.DropDown = contextMenuStripSwap;
+			toolStripDropDownButtonSwap.Image = ColorSelector.Properties.Resources.arrow_switch;
+			toolStripDropDownButtonSwap.ImageTransparentColor = Color.Magenta;
+			toolStripDropDownButtonSwap.Name = "toolStripDropDownButtonSwap";
+			toolStripDropDownButtonSwap.Size = new Size(29, 22);
+			toolStripDropDownButtonSwap.Text = "Farbkanäle &vertauschen";
+			toolStripDropDownButtonSwap.MouseEnter += SetStatusbar_Enter;
+			toolStripDropDownButtonSwap.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// toolStrip
 			// 
+			toolStrip.AccessibleRole = AccessibleRole.ToolBar;
 			toolStrip.AllowItemReorder = true;
 			toolStrip.Dock = DockStyle.None;
-			toolStrip.Items.AddRange(new ToolStripItem[] { toolStripButtonInvert, toolStripButtonRandomize, toolStripButtonMirror, toolStripDropDownButtonSwap, toolStripDropDownButton1, toolStripSeparator1, toolStripButtonAbout });
+			toolStrip.Items.AddRange(new ToolStripItem[] { toolStripButtonInvert, toolStripButtonRandomize, toolStripButtonMirror, toolStripDropDownButtonSwap, toolStripSeparator1, toolStripButtonAbout });
 			toolStrip.Location = new Point(3, 24);
 			toolStrip.Name = "toolStrip";
 			toolStrip.RenderMode = ToolStripRenderMode.System;
-			toolStrip.Size = new Size(152, 25);
+			toolStrip.Size = new Size(139, 25);
 			toolStrip.TabIndex = 1;
 			toolStrip.TabStop = true;
 			toolStrip.Text = "toolStrip";
 			// 
 			// toolStripButtonInvert
 			// 
+			toolStripButtonInvert.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonInvert.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			toolStripButtonInvert.Image = ColorSelector.Properties.Resources.contrast;
 			toolStripButtonInvert.ImageTransparentColor = Color.Magenta;
@@ -873,6 +949,7 @@
 			// 
 			// toolStripButtonRandomize
 			// 
+			toolStripButtonRandomize.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonRandomize.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			toolStripButtonRandomize.Image = ColorSelector.Properties.Resources.dice;
 			toolStripButtonRandomize.ImageTransparentColor = Color.Magenta;
@@ -885,6 +962,7 @@
 			// 
 			// toolStripButtonMirror
 			// 
+			toolStripButtonMirror.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonMirror.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			toolStripButtonMirror.Image = ColorSelector.Properties.Resources.ice_cube;
 			toolStripButtonMirror.ImageTransparentColor = Color.Magenta;
@@ -895,29 +973,9 @@
 			toolStripButtonMirror.MouseEnter += SetStatusbar_Enter;
 			toolStripButtonMirror.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// toolStripDropDownButtonSwap
-			// 
-			toolStripDropDownButtonSwap.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			toolStripDropDownButtonSwap.DropDown = contextMenuStripSwap;
-			toolStripDropDownButtonSwap.Image = ColorSelector.Properties.Resources.arrow_switch;
-			toolStripDropDownButtonSwap.ImageTransparentColor = Color.Magenta;
-			toolStripDropDownButtonSwap.Name = "toolStripDropDownButtonSwap";
-			toolStripDropDownButtonSwap.Size = new Size(29, 22);
-			toolStripDropDownButtonSwap.Text = "Farbkanäle &spiegeln";
-			toolStripDropDownButtonSwap.MouseEnter += SetStatusbar_Enter;
-			toolStripDropDownButtonSwap.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// toolStripDropDownButton1
-			// 
-			toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			toolStripDropDownButton1.DropDown = contextMenuStripSwap;
-			toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-			toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-			toolStripDropDownButton1.Size = new Size(13, 22);
-			toolStripDropDownButton1.Text = "Farbkanäle &vertauschen";
-			// 
 			// toolStripSeparator1
 			// 
+			toolStripSeparator1.AccessibleRole = AccessibleRole.Separator;
 			toolStripSeparator1.Name = "toolStripSeparator1";
 			toolStripSeparator1.Size = new Size(6, 25);
 			toolStripSeparator1.MouseEnter += SetStatusbar_Enter;
@@ -925,6 +983,7 @@
 			// 
 			// toolStripButtonAbout
 			// 
+			toolStripButtonAbout.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonAbout.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			toolStripButtonAbout.Image = ColorSelector.Properties.Resources.information;
 			toolStripButtonAbout.ImageTransparentColor = Color.Magenta;
@@ -937,14 +996,19 @@
 			// 
 			// ColorSelectorForm
 			// 
+			AccessibleRole = AccessibleRole.Window;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(480, 327);
 			Controls.Add(toolStripContainer);
+			FormBorderStyle = FormBorderStyle.FixedSingle;
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			MainMenuStrip = menuStrip;
+			MaximizeBox = false;
 			Name = "ColorSelectorForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Color Selector";
+			Load += ColorSelectorForm_Load;
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
 			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
@@ -989,7 +1053,7 @@
 		private Label labelChannelRed;
 		private Label labelChannelGreen;
 		private Label labelChannelBlue;
-		private Label labelAlpha;
+		private Label labelChannelAlpha;
 		private TrackBar trackBarChannelRed;
 		private TrackBar trackBarChannelAlpha;
 		private TrackBar trackBarChannelBlue;
@@ -1018,12 +1082,11 @@
 		private ToolStripButton toolStripButtonRandomize;
 		private ToolStripSeparator toolStripSeparator1;
 		private ToolStripButton toolStripButtonAbout;
-		private ToolStripDropDownButton toolStripDropDownButton1;
 		private Panel panelCanvas;
 		private PictureBox pictureBoxCanvas;
 		private Button buttonCopyToClipboardColorCodeHex;
 		private TableLayoutPanel tableLayoutPanelColorCodes;
-		private Button buttonbuttonCopyToClipboardColorCodeMath;
+		private Button buttonCopyToClipboardColorCodeMath;
 		private Button buttonCopyToClipboardColorCodeRgb;
 		private Button buttonCopyToClipboardColorCodeHtml;
 		private Label labelColorCodeMath;
@@ -1053,5 +1116,6 @@
 		private ToolStripMenuItem toolStripMenuItemBlueGreen;
 		private ToolStripButton toolStripButtonMirror;
 		private ToolStripDropDownButton toolStripDropDownButtonSwap;
+		private ColorDialog colorDialog;
 	}
 }
