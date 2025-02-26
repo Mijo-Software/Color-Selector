@@ -60,7 +60,7 @@ namespace DisksizeWatcher
 				// Replace the incorrect event handler assignment with the correct method name
 				this.KeyDown += new KeyEventHandler(AboutBoxForm_KeyDown);
 				this.KeyPreview = true; // Ensures the form receives key events before the controls
-				Logger.Info(message: "LicenseForm initialized");
+				Logger.Info(message: "AboutBoxForm initialized");
 				CultureInfo culture = CultureInfo.CurrentCulture;
 				Text = string.Format(provider: culture, format: "Info about {0}", args: AssemblyInfo.AssemblyTitle);
 				labelProductName.Text = AssemblyInfo.AssemblyProduct;
